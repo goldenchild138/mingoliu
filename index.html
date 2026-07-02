@@ -3,27 +3,18 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Ming Liu — Digital. Creative.</title>
-<meta name="description" content="Ming Liu. Principal product designer. Portfolio coming soon." />
+<title>Ming Liu — Preview</title>
 
-<!-- Barlow font -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-<!-- Tailwind -->
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
   tailwind.config = {
     theme: {
       extend: {
-        fontFamily: {
-          barlow: ['Barlow', 'sans-serif'],
-        },
-        colors: {
-          paper: '#F1F1EF',
-          ink: '#111111',
-        },
+        fontFamily: { barlow: ['Barlow', 'sans-serif'] },
       },
     },
   };
@@ -31,61 +22,175 @@
 
 <style>
   html { font-family: 'Barlow', sans-serif; }
-  body { background-color: #F1F1EF; }
+  body { background-color: #fafafa; }
   .underline-link {
     text-decoration: underline;
     text-underline-offset: 3px;
     text-decoration-color: rgba(17,17,17,0.35);
     transition: text-decoration-color 0.2s ease;
   }
-  .underline-link:hover {
-    text-decoration-color: rgba(17,17,17,1);
-  }
+  .underline-link:hover { text-decoration-color: rgba(17,17,17,1); }
+  .card-thumb, .hero-img { aspect-ratio: 16 / 9; }
+  .card-link:hover .card-thumb { opacity: 0.92; }
+  .view { display: none; }
+  .view.active { display: block; }
 </style>
 </head>
 
-<body class="min-h-screen flex flex-col text-ink font-barlow">
+<body class="min-h-screen flex flex-col text-black font-barlow">
 
-  <!-- Top bar -->
-  <header class="w-full px-6 md:px-10 py-6 flex items-center justify-between" style="font-size: 11pt;">
-    <span class="tracking-wide">Index /</span>
-    <span class="text-ink/50">Portfolio launching soon</span>
-  </header>
+  <!-- HOME VIEW -->
+  <div id="view-home" class="view active">
+    <section class="w-full px-2 pt-2 pb-[1px]">
+      <div class="bg-zinc-100 rounded-[8px] px-6 py-10 md:py-14">
+        <div class="max-w-3xl">
+          <h1 class="font-normal leading-snug tracking-tight mb-8 text-lg md:text-xl">
+            Ming Liu.<br />
+            <span class="text-black/40">Digital. Creative.</span>
+          </h1>
+          <p class="leading-relaxed text-black/80 max-w-xl" style="font-size: 9pt;">
+            I'm currently a visual lead / IC principal product designer at
+            <span class="underline-link font-medium">Automata Technologies</span>,
+            designing a robotics software platform for the biotech industry.
+            I'm also the creative lead for the company brand, identity and visual comms.
+          </p>
+          <a href="https://www.linkedin.com/in/goldenchild128/" target="_blank" rel="noopener noreferrer" class="underline-link font-medium inline-block mt-6" style="font-size: 9pt;">LinkedIn ↗</a>
+        </div>
+      </div>
+    </section>
 
-  <!-- Main -->
-  <main class="flex-1 flex items-center px-6 md:px-10">
-    <div class="max-w-3xl">
-      <h1 class="font-normal leading-snug tracking-tight mb-8" style="font-size: 11pt;">
-        Ming Liu.<br />
-        <span class="text-ink/40">Digital. Creative.</span>
-      </h1>
+    <main class="flex-1 px-2 pb-[1px]">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-[1px]">
 
-      <p class="uppercase tracking-[0.2em] text-ink/50 mb-4" style="font-size: 11pt;">
-        Principal Product Designer
-      </p>
+        <a href="#" data-target="linq" class="card-link nav-link bg-zinc-100 rounded-[8px] px-6 py-6 block">
+          <span class="block text-black/50 font-medium mb-4" style="font-size: 9pt;">Automata</span>
+          <div class="card-thumb w-full rounded-[8px] mb-4 bg-[#1a1a1a] flex items-center justify-center text-gray-500 text-xs tracking-widest">LINQ</div>
+          <h2 class="font-medium mb-1" style="font-size: 9pt;">LINQ</h2>
+          <p class="text-black/60" style="font-size: 9pt;">Category defining biotech software platform</p>
+        </a>
 
-      <p class="leading-relaxed text-ink/80 max-w-xl mb-10" style="font-size: 11pt;">
-        This portfolio is currently in progress. In the meantime, feel free to
-        get in touch or take a look at my work history on LinkedIn.
-      </p>
+        <a href="#" data-target="synthace" class="card-link nav-link bg-zinc-100 rounded-[8px] px-6 py-6 block">
+          <span class="block text-black/50 font-medium mb-4" style="font-size: 9pt;">Synthace</span>
+          <div class="card-thumb w-full rounded-[8px] mb-4 bg-[#1a1a1a] flex items-center justify-center text-gray-500 text-xs tracking-widest">SYNTHACE</div>
+          <h2 class="font-medium mb-1" style="font-size: 9pt;">Software</h2>
+          <p class="text-black/60" style="font-size: 9pt;">Automating life science experimentation</p>
+        </a>
 
-      <a
-        href="https://www.linkedin.com/in/goldenchild128/"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="underline-link font-medium"
-        style="font-size: 11pt;"
-      >
-        LinkedIn ↗
-      </a>
-    </div>
-  </main>
+        <a href="#" data-target="dyson-lightcycle" class="card-link nav-link bg-zinc-100 rounded-[8px] px-6 py-6 block">
+          <span class="block text-black/50 font-medium mb-4" style="font-size: 9pt;">Dyson</span>
+          <div class="card-thumb w-full rounded-[8px] mb-4 bg-[#1a1a1a] flex items-center justify-center text-gray-500 text-xs tracking-widest">LIGHTCYCLE</div>
+          <h2 class="font-medium mb-1" style="font-size: 9pt;">Lightcycle</h2>
+          <p class="text-black/60" style="font-size: 9pt;">Connected product that tracks natural daylight</p>
+        </a>
 
-  <!-- Footer -->
-  <footer class="w-full px-6 md:px-10 py-6 flex items-center justify-between border-t border-ink/10 mt-10" style="font-size: 11pt;">
-    <span>© Ming Liu</span>
-    <span class="text-ink/50">Site coming soon</span>
-  </footer>
+        <a href="#" data-target="dyson-concept" class="card-link nav-link bg-zinc-100 rounded-[8px] px-6 py-6 block">
+          <span class="block text-black/50 font-medium mb-4" style="font-size: 9pt;">Dyson</span>
+          <div class="card-thumb w-full rounded-[8px] mb-4 bg-[#1a1a1a] flex items-center justify-center text-gray-500 text-xs tracking-widest">AUTOMOTIVE</div>
+          <h2 class="font-medium mb-1" style="font-size: 9pt;">Automotive*</h2>
+          <p class="text-black/60" style="font-size: 9pt;">HMI designs</p>
+        </a>
+
+        <a href="#" data-target="automata-brand" class="card-link nav-link bg-zinc-100 rounded-[8px] px-6 py-6 block">
+          <span class="block text-black/50 font-medium mb-4" style="font-size: 9pt;">Automata</span>
+          <div class="card-thumb w-full rounded-[8px] mb-4 bg-[#1a1a1a] flex items-center justify-center text-gray-500 text-xs tracking-widest">AUTOMATA LINQ</div>
+          <h2 class="font-medium mb-1" style="font-size: 9pt;">Brand</h2>
+          <p class="text-black/60" style="font-size: 9pt;">Visual identity and brand system for Automata LINQ</p>
+        </a>
+
+        <a href="#" data-target="other-connected" class="card-link nav-link bg-zinc-100 rounded-[8px] px-6 py-6 block">
+          <span class="block text-black/50 font-medium mb-4" style="font-size: 9pt;">Other</span>
+          <div class="card-thumb w-full rounded-[8px] mb-4 bg-[#1a1a1a] flex items-center justify-center text-gray-500 text-xs tracking-widest">OTHER</div>
+          <h2 class="font-medium mb-1" style="font-size: 9pt;">Portfolio Snapshots</h2>
+          <p class="text-black/60" style="font-size: 9pt;">Other work and experiments</p>
+        </a>
+
+      </div>
+    </main>
+
+    <footer class="w-full px-2 pb-2 pt-0" style="font-size: 9pt;">
+      <div class="bg-zinc-100 rounded-[8px] px-6 py-6 flex items-center justify-between">
+        <span>© Ming Liu</span>
+      </div>
+    </footer>
+  </div>
+
+  <!-- PROJECT DETAIL VIEWS -->
+  <script id="project-data" type="application/json">
+  {
+    "linq": {"category":"Automata","title":"LINQ.","subheading":"Reimagining automation in biotech","body":"Building a category-defining product in the AI era. Leading product design across the platform; shaping vision, systems, and craft, enabling two fund (incl. series C) raises totaling $85m since I joined as a founding designer.","thumb":"LINQ","prev":"other-connected","next":"synthace"},
+    "synthace": {"category":"Synthace","title":"Software.","subheading":"Automating life sciences for a better future","body":"Designing the core software experience for Synthace, a platform that automates complex life science experimentation. Focused on translating dense scientific workflows into a clear, dependable interface for researchers.","thumb":"SYNTHACE","prev":"linq","next":"dyson-lightcycle"},
+    "dyson-lightcycle": {"category":"Dyson","title":"Lightcycle.","subheading":"A connected product that tracks natural daylight","body":"Product and app design for Dyson Lightcycle, a connected lamp that synchronises colour temperature and brightness to natural daylight patterns based on location and time of day.","thumb":"LIGHTCYCLE","prev":"synthace","next":"dyson-concept"},
+    "dyson-concept": {"category":"Dyson","title":"Automotive*.","subheading":"HMI designs","body":"An internal concept exploration project looking at how Dyson's design language could extend into future mobility and automotive spaces, exploring form, materiality, and brand expression.","thumb":"AUTOMOTIVE","prev":"dyson-lightcycle","next":"automata-brand"},
+    "automata-brand": {"category":"Automata","title":"Brand.","subheading":"Visual identity and brand system for Automata LINQ","body":"As creative lead for Automata's brand, identity and visual comms, I developed the visual language for Automata LINQ, including logo systems, typography, colour, and motion principles used across product and marketing.","thumb":"AUTOMATA LINQ","prev":"dyson-concept","next":"other-connected"},
+    "other-connected": {"category":"Other","title":"Portfolio Snapshots.","subheading":"Other work and experiments","body":"An exploratory concept project imagining a unified app experience for managing connected home appliances, with a focus on simple onboarding, device discovery, and at-a-glance status.","thumb":"OTHER","prev":"automata-brand","next":"linq"}
+  }
+  </script>
+
+  <div id="view-detail" class="view">
+    <header class="w-full px-6 md:px-10 py-6 flex items-center justify-between" style="font-size: 9pt;">
+      <a href="#" data-target="home" class="underline-link nav-link tracking-wide">Index /</a>
+      <nav class="flex items-center gap-6">
+        <a href="#" id="detail-prev" class="underline-link nav-link text-black/70">← Previous</a>
+        <a href="#" id="detail-next" class="underline-link nav-link text-black/70">Next →</a>
+      </nav>
+    </header>
+
+    <main class="flex-1 px-6 md:px-10 pb-16">
+      <p id="detail-category" class="uppercase tracking-[0.2em] text-black/50 mb-2" style="font-size: 8pt;"></p>
+      <h1 id="detail-title" class="font-bold text-2xl md:text-3xl tracking-tight mb-8"></h1>
+
+      <div id="detail-hero" class="hero-img w-full rounded-[8px] mb-16 bg-[#1a1a1a] flex items-center justify-center text-gray-500 text-xs tracking-widest"></div>
+
+      <div class="max-w-2xl">
+        <h2 id="detail-subheading" class="font-semibold text-base md:text-lg mb-6"></h2>
+        <p id="detail-body" class="leading-relaxed text-black/70" style="font-size: 9pt;"></p>
+      </div>
+    </main>
+
+    <footer class="w-full px-6 md:px-10 py-6 flex items-center justify-between border-t border-black/10" style="font-size: 9pt;">
+      <span>© Ming Liu</span>
+      <a href="#" data-target="home" class="underline-link nav-link text-black/50">Back to Index</a>
+    </footer>
+  </div>
+
+<script>
+  const projectData = JSON.parse(document.getElementById('project-data').textContent);
+  const viewHome = document.getElementById('view-home');
+  const viewDetail = document.getElementById('view-detail');
+
+  function showHome() {
+    viewHome.classList.add('active');
+    viewDetail.classList.remove('active');
+    window.scrollTo(0, 0);
+  }
+
+  function showDetail(key) {
+    const p = projectData[key];
+    if (!p) return;
+    document.getElementById('detail-category').textContent = p.category;
+    document.getElementById('detail-title').textContent = p.title;
+    document.getElementById('detail-hero').textContent = p.thumb;
+    document.getElementById('detail-subheading').textContent = p.subheading;
+    document.getElementById('detail-body').textContent = p.body;
+    document.getElementById('detail-prev').setAttribute('data-target', p.prev);
+    document.getElementById('detail-next').setAttribute('data-target', p.next);
+    viewHome.classList.remove('active');
+    viewDetail.classList.add('active');
+    window.scrollTo(0, 0);
+  }
+
+  document.body.addEventListener('click', function (e) {
+    const link = e.target.closest('.nav-link');
+    if (!link) return;
+    e.preventDefault();
+    const target = link.getAttribute('data-target');
+    if (target === 'home') {
+      showHome();
+    } else {
+      showDetail(target);
+    }
+  });
+</script>
 
 </body>
 </html>
