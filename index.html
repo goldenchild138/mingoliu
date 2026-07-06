@@ -1,196 +1,311 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Ming Liu — Preview</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-  tailwind.config = {
-    theme: {
-      extend: {
-        fontFamily: { barlow: ['Barlow', 'sans-serif'] },
-      },
-    },
-  };
-</script>
-
-<style>
-  html { font-family: 'Barlow', sans-serif; }
-  body { background-color: #fafafa; }
-  .underline-link {
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    text-decoration-color: rgba(17,17,17,0.35);
-    transition: text-decoration-color 0.2s ease;
-  }
-  .underline-link:hover { text-decoration-color: rgba(17,17,17,1); }
-  .card-thumb, .hero-img { aspect-ratio: 16 / 9; }
-  .card-link:hover .card-thumb { opacity: 0.92; }
-  .view { display: none; }
-  .view.active { display: block; }
-</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
 </head>
+<body>
+<x-dc>
+<helmet>
+  <meta name="ext-resource-dependency" content="assets/linq-hero.svg">
+  <meta name="ext-resource-dependency" content="assets/dyson-automotive-hero.png">
+  <template id="__bundler_thumbnail">
+    <svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
+      <rect width="56" height="56" fill="#f2f2f0"/>
+      <text x="28" y="33" text-anchor="middle" font-family="Barlow, sans-serif" font-size="16" fill="#141414">ML</text>
+    </svg>
+  </template>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; }
+    html { scrollbar-gutter: stable; }
+  </style>
+</helmet>
 
-<body class="min-h-screen flex flex-col text-black font-barlow">
+<div style="min-height: 100vh; display: flex; flex-direction: column; background: #fafaf9; color: #141414; font-family: 'Barlow', sans-serif;">
 
-  <!-- HOME VIEW -->
-  <div id="view-home" class="view active">
-    <section class="w-full px-2 pt-2 pb-[1px]">
-      <div class="bg-zinc-100 rounded-[8px] px-6 py-10 md:py-14">
-        <div class="max-w-3xl">
-          <h1 class="font-normal leading-snug tracking-tight mb-8 text-lg md:text-xl">
-            Ming Liu.<br />
-            <span class="text-black/40">Digital. Creative.</span>
-          </h1>
-          <p class="leading-relaxed text-black/80 max-w-xl" style="font-size: 9pt;">
-            I'm currently a visual lead / IC principal product designer at
-            <span class="underline-link font-medium">Automata Technologies</span>,
-            designing a robotics software platform for the biotech industry.
-            I'm also the creative lead for the company brand, identity and visual comms.
-          </p>
-          <a href="https://www.linkedin.com/in/goldenchild128/" target="_blank" rel="noopener noreferrer" class="underline-link font-medium inline-block mt-6" style="font-size: 9pt;">LinkedIn ↗</a>
+  <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+    <div style="display: flex; flex-direction: column; flex: 1;" data-screen-label="Home">
+
+      <section style="width: 100%; padding: 8px 8px 1px 8px;">
+        <div style="background: #f2f2f0; border-radius: 10px; padding: 44px 28px;">
+          <div style="max-width: 640px;">
+            <h1 style="font-weight: 400; line-height: 1.35; letter-spacing: -0.01em; margin: 0 0 28px 0; font-size: 22px;">
+              Ming Liu.<br>
+              <span style="color: rgba(20,20,20,0.4);">Digital. Creative.</span>
+            </h1>
+            <p style="line-height: 1.7; color: rgba(20,20,20,0.8); max-width: 520px; margin: 0; font-size: 14px;">
+              I'm currently a visual lead / IC principal product designer at
+              <span style="text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(17,17,17,0.35); font-weight: 500;">Automata Technologies</span>,
+              designing a robotics software platform for the biotech industry.
+              I'm also the creative lead for the company brand, identity and visual comms.
+            </p>
+
+            <sc-if value="{{ linkedinNewTab }}" hint-placeholder-val="{{ true }}">
+              <a href="https://www.linkedin.com/in/goldenchild128/" target="_blank" rel="noopener noreferrer" style="text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(17,17,17,0.35); font-weight: 500; display: inline-block; margin-top: 20px; font-size: 14px; color: inherit;" style-hover="{&quot;textDecorationColor&quot;: &quot;rgba(17,17,17,1)&quot;}">LinkedIn ↗</a>
+            </sc-if>
+            <sc-if value="{{ linkedinSameTab }}" hint-placeholder-val="{{ false }}">
+              <a href="https://www.linkedin.com/in/goldenchild128/" style="text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(17,17,17,0.35); font-weight: 500; display: inline-block; margin-top: 20px; font-size: 14px; color: inherit;" style-hover="{&quot;textDecorationColor&quot;: &quot;rgba(17,17,17,1)&quot;}">LinkedIn ↗</a>
+            </sc-if>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <main class="flex-1 px-2 pb-[1px]">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-[1px]">
+      <main style="flex: 0 0 auto; padding: 0 8px 1px 8px; width: 100%">
+        <div style="display: flex; flex-wrap: wrap; align-items: stretch; gap: 1px;">
 
-        <a href="#" data-target="linq" class="card-link nav-link bg-zinc-100 rounded-[8px] px-6 py-6 block">
-          <span class="block text-black/50 font-medium mb-4" style="font-size: 9pt;">Automata</span>
-          <div class="card-thumb w-full rounded-[8px] mb-4 bg-[#1a1a1a] flex items-center justify-center text-gray-500 text-xs tracking-widest">LINQ</div>
-          <h2 class="font-medium mb-1" style="font-size: 9pt;">LINQ</h2>
-          <p class="text-black/60" style="font-size: 9pt;">Category defining biotech software platform</p>
-        </a>
+          <sc-for list="{{ projects }}" as="p">
+            <a href="#" onClick="{{ p.onClick }}" onMouseEnter="{{ p.onMouseEnter }}" onMouseLeave="{{ p.onMouseLeave }}" style="cursor: pointer; text-decoration: none; color: inherit; background: #f2f2f0; border-radius: 10px; padding: 26px; display: flex; flex-direction: column; flex: 1 1 280px; box-sizing: border-box; width: 100%" style-hover="{&quot;background&quot;: &quot;#ececea&quot;}">
 
-        <a href="#" data-target="synthace" class="card-link nav-link bg-zinc-100 rounded-[8px] px-6 py-6 block">
-          <span class="block text-black/50 font-medium mb-4" style="font-size: 9pt;">Synthace</span>
-          <div class="card-thumb w-full rounded-[8px] mb-4 bg-[#1a1a1a] flex items-center justify-center text-gray-500 text-xs tracking-widest">SYNTHACE</div>
-          <h2 class="font-medium mb-1" style="font-size: 9pt;">Software</h2>
-          <p class="text-black/60" style="font-size: 9pt;">Automating life science experimentation</p>
-        </a>
+              <sc-if value="{{ showCategoryTags }}" hint-placeholder-val="{{ true }}">
+                <span style="display: block; color: rgba(20,20,20,0.5); font-weight: 500; margin-bottom: 16px; font-size: 12px;">{{ p.tag }}</span>
+              </sc-if>
 
-        <a href="#" data-target="dyson-lightcycle" class="card-link nav-link bg-zinc-100 rounded-[8px] px-6 py-6 block">
-          <span class="block text-black/50 font-medium mb-4" style="font-size: 9pt;">Dyson</span>
-          <div class="card-thumb w-full rounded-[8px] mb-4 bg-[#1a1a1a] flex items-center justify-center text-gray-500 text-xs tracking-widest">LIGHTCYCLE</div>
-          <h2 class="font-medium mb-1" style="font-size: 9pt;">Lightcycle</h2>
-          <p class="text-black/60" style="font-size: 9pt;">Connected product that tracks natural daylight</p>
-        </a>
+              <sc-if value="{{ p.hasImage }}" hint-placeholder-val="{{ false }}">
+                <img src="{{ p.thumbSrcSafe }}" style="{{ p.thumbStyle }}" />
+              </sc-if>
+              <sc-if value="{{ p.isPlaceholder }}" hint-placeholder-val="{{ true }}">
+                <div style="{{ p.placeholderStyle }}">{{ p.placeholderLabel }}</div>
+              </sc-if>
 
-        <a href="#" data-target="dyson-concept" class="card-link nav-link bg-zinc-100 rounded-[8px] px-6 py-6 block">
-          <span class="block text-black/50 font-medium mb-4" style="font-size: 9pt;">Dyson</span>
-          <div class="card-thumb w-full rounded-[8px] mb-4 bg-[#1a1a1a] flex items-center justify-center text-gray-500 text-xs tracking-widest">AUTOMOTIVE</div>
-          <h2 class="font-medium mb-1" style="font-size: 9pt;">Automotive*</h2>
-          <p class="text-black/60" style="font-size: 9pt;">HMI designs</p>
-        </a>
+              <div style="margin-top: auto;">
+                <h2 style="font-weight: 500; margin: 0 0 4px 0; font-size: 14px;">{{ p.title }}</h2>
+                <p style="color: rgba(20,20,20,0.6); margin: 0; font-size: 13px;">{{ p.desc }}</p>
+              </div>
+            </a>
+          </sc-for>
 
-        <a href="#" data-target="automata-brand" class="card-link nav-link bg-zinc-100 rounded-[8px] px-6 py-6 block">
-          <span class="block text-black/50 font-medium mb-4" style="font-size: 9pt;">Automata</span>
-          <div class="card-thumb w-full rounded-[8px] mb-4 bg-[#1a1a1a] flex items-center justify-center text-gray-500 text-xs tracking-widest">AUTOMATA LINQ</div>
-          <h2 class="font-medium mb-1" style="font-size: 9pt;">Brand</h2>
-          <p class="text-black/60" style="font-size: 9pt;">Visual identity and brand system for Automata LINQ</p>
-        </a>
+        </div>
+      </main>
 
-        <a href="#" data-target="other-connected" class="card-link nav-link bg-zinc-100 rounded-[8px] px-6 py-6 block">
-          <span class="block text-black/50 font-medium mb-4" style="font-size: 9pt;">Other</span>
-          <div class="card-thumb w-full rounded-[8px] mb-4 bg-[#1a1a1a] flex items-center justify-center text-gray-500 text-xs tracking-widest">OTHER</div>
-          <h2 class="font-medium mb-1" style="font-size: 9pt;">Portfolio Snapshots</h2>
-          <p class="text-black/60" style="font-size: 9pt;">Other work and experiments</p>
-        </a>
+      <footer style="width: 100%; padding: 0 8px 8px 8px; font-size: 13px; display: flex; flex: 1;">
+        <div style="background: #f2f2f0; border-radius: 10px; padding: 20px 28px; display: flex; align-items: flex-end; justify-content: flex-start; min-height: 64px; flex: 1; box-sizing: border-box;">
+          <span>© Ming Liu</span>
+        </div>
+      </footer>
+    </div>
+  </sc-if>
 
-      </div>
-    </main>
+  <sc-if value="{{ isDetail }}" hint-placeholder-val="{{ false }}">
+    <div style="display: flex; flex-direction: column; flex: 1;" data-screen-label="Project detail">
+      <header style="width: 100%; padding: 24px 40px; display: flex; align-items: center; justify-content: space-between; font-size: 13px;">
+        <a href="#" onClick="{{ goHome }}" style="text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(17,17,17,0.35); letter-spacing: 0.02em; cursor: pointer; color: inherit;" style-hover="{&quot;textDecorationColor&quot;: &quot;rgba(17,17,17,1)&quot;}">Index /</a>
+        <nav style="display: flex; align-items: center; gap: 24px;">
+          <a href="#" onClick="{{ goPrev }}" style="text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(17,17,17,0.35); color: rgba(20,20,20,0.7); cursor: pointer;" style-hover="{&quot;textDecorationColor&quot;: &quot;rgba(17,17,17,1)&quot;}">← Previous</a>
+          <a href="#" onClick="{{ goNext }}" style="text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(17,17,17,0.35); color: rgba(20,20,20,0.7); cursor: pointer;" style-hover="{&quot;textDecorationColor&quot;: &quot;rgba(17,17,17,1)&quot;}">Next →</a>
+        </nav>
+      </header>
 
-    <footer class="w-full px-2 pb-2 pt-0" style="font-size: 9pt;">
-      <div class="bg-zinc-100 rounded-[8px] px-6 py-6 flex items-center justify-between">
+      <main style="flex: 1; padding: 0 40px 64px 40px;">
+        <p style="text-transform: uppercase; letter-spacing: 0.2em; color: rgba(20,20,20,0.5); margin: 0 0 8px 0; font-size: 11px;">{{ detail.category }}</p>
+        <h1 style="font-weight: 700; letter-spacing: -0.01em; margin: 0 0 32px 0; font-size: 34px;">{{ detail.title }}</h1>
+
+        <sc-if value="{{ detail.hasImage }}" hint-placeholder-val="{{ false }}">
+          <img src="{{ detail.thumbSrcSafe }}" style="{{ detail.thumbStyle }}" />
+        </sc-if>
+        <sc-if value="{{ detail.isPlaceholder }}" hint-placeholder-val="{{ true }}">
+          <div style="{{ detail.placeholderStyle }}">{{ detail.placeholderLabel }}</div>
+        </sc-if>
+
+        <div style="max-width: 640px;">
+          <h2 style="font-weight: 600; margin: 0 0 20px 0; font-size: 18px;">{{ detail.subheading }}</h2>
+          <p style="line-height: 1.7; color: rgba(20,20,20,0.7); margin: 0; font-size: 14px;">{{ detail.body }}</p>
+        </div>
+      </main>
+
+      <footer style="width: 100%; padding: 24px 40px; display: flex; align-items: flex-end; justify-content: space-between; border-top: 1px solid rgba(0,0,0,0.1); font-size: 13px; min-height: clamp(64px, 12vh, 160px); box-sizing: border-box;">
         <span>© Ming Liu</span>
-      </div>
-    </footer>
-  </div>
+        <a href="#" onClick="{{ goHome }}" style="text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(17,17,17,0.35); color: rgba(20,20,20,0.5); cursor: pointer;" style-hover="{&quot;textDecorationColor&quot;: &quot;rgba(17,17,17,1)&quot;}">Back to Index</a>
+      </footer>
+    </div>
+  </sc-if>
 
-  <!-- PROJECT DETAIL VIEWS -->
-  <script id="project-data" type="application/json">
-  {
-    "linq": {"category":"Automata","title":"LINQ.","subheading":"Reimagining automation in biotech","body":"Building a category-defining product in the AI era. Leading product design across the platform; shaping vision, systems, and craft, enabling two fund (incl. series C) raises totaling $85m since I joined as a founding designer.","thumb":"LINQ","prev":"other-connected","next":"synthace"},
-    "synthace": {"category":"Synthace","title":"Software.","subheading":"Automating life sciences for a better future","body":"Designing the core software experience for Synthace, a platform that automates complex life science experimentation. Focused on translating dense scientific workflows into a clear, dependable interface for researchers.","thumb":"SYNTHACE","prev":"linq","next":"dyson-lightcycle"},
-    "dyson-lightcycle": {"category":"Dyson","title":"Lightcycle.","subheading":"A connected product that tracks natural daylight","body":"Product and app design for Dyson Lightcycle, a connected lamp that synchronises colour temperature and brightness to natural daylight patterns based on location and time of day.","thumb":"LIGHTCYCLE","prev":"synthace","next":"dyson-concept"},
-    "dyson-concept": {"category":"Dyson","title":"Automotive*.","subheading":"HMI designs","body":"An internal concept exploration project looking at how Dyson's design language could extend into future mobility and automotive spaces, exploring form, materiality, and brand expression.","thumb":"AUTOMOTIVE","prev":"dyson-lightcycle","next":"automata-brand"},
-    "automata-brand": {"category":"Automata","title":"Brand.","subheading":"Visual identity and brand system for Automata LINQ","body":"As creative lead for Automata's brand, identity and visual comms, I developed the visual language for Automata LINQ, including logo systems, typography, colour, and motion principles used across product and marketing.","thumb":"AUTOMATA LINQ","prev":"dyson-concept","next":"other-connected"},
-    "other-connected": {"category":"Other","title":"Portfolio Snapshots.","subheading":"Other work and experiments","body":"An exploratory concept project imagining a unified app experience for managing connected home appliances, with a focus on simple onboarding, device discovery, and at-a-glance status.","thumb":"OTHER","prev":"automata-brand","next":"linq"}
-  }
-  </script>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 1280, &quot;height&quot;: 900}, &quot;hoverReveal&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Behavior&quot;}, &quot;showCategoryTags&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Behavior&quot;}, &quot;linkedinNewTab&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Behavior&quot;}}">
+const BLANK_SRC = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ycllwAAACwAAAAAAQABAAACAgQBQAAAOw==';
 
-  <div id="view-detail" class="view">
-    <header class="w-full px-6 md:px-10 py-6 flex items-center justify-between" style="font-size: 9pt;">
-      <a href="#" data-target="home" class="underline-link nav-link tracking-wide">Index /</a>
-      <nav class="flex items-center gap-6">
-        <a href="#" id="detail-prev" class="underline-link nav-link text-black/70">← Previous</a>
-        <a href="#" id="detail-next" class="underline-link nav-link text-black/70">Next →</a>
-      </nav>
-    </header>
+class Component extends DCLogic {
+  state = { view: 'home', hoveredKey: null };
 
-    <main class="flex-1 px-6 md:px-10 pb-16">
-      <p id="detail-category" class="uppercase tracking-[0.2em] text-black/50 mb-2" style="font-size: 8pt;"></p>
-      <h1 id="detail-title" class="font-bold text-2xl md:text-3xl tracking-tight mb-8"></h1>
-
-      <div id="detail-hero" class="hero-img w-full rounded-[8px] mb-16 bg-[#1a1a1a] flex items-center justify-center text-gray-500 text-xs tracking-widest"></div>
-
-      <div class="max-w-2xl">
-        <h2 id="detail-subheading" class="font-semibold text-base md:text-lg mb-6"></h2>
-        <p id="detail-body" class="leading-relaxed text-black/70" style="font-size: 9pt;"></p>
-      </div>
-    </main>
-
-    <footer class="w-full px-6 md:px-10 py-6 flex items-center justify-between border-t border-black/10" style="font-size: 9pt;">
-      <span>© Ming Liu</span>
-      <a href="#" data-target="home" class="underline-link nav-link text-black/50">Back to Index</a>
-    </footer>
-  </div>
-
-<script>
-  const projectData = JSON.parse(document.getElementById('project-data').textContent);
-  const viewHome = document.getElementById('view-home');
-  const viewDetail = document.getElementById('view-detail');
-
-  function showHome() {
-    viewHome.classList.add('active');
-    viewDetail.classList.remove('active');
-    window.scrollTo(0, 0);
-  }
-
-  function showDetail(key) {
-    const p = projectData[key];
-    if (!p) return;
-    document.getElementById('detail-category').textContent = p.category;
-    document.getElementById('detail-title').textContent = p.title;
-    document.getElementById('detail-hero').textContent = p.thumb;
-    document.getElementById('detail-subheading').textContent = p.subheading;
-    document.getElementById('detail-body').textContent = p.body;
-    document.getElementById('detail-prev').setAttribute('data-target', p.prev);
-    document.getElementById('detail-next').setAttribute('data-target', p.next);
-    viewHome.classList.remove('active');
-    viewDetail.classList.add('active');
-    window.scrollTo(0, 0);
-  }
-
-  document.body.addEventListener('click', function (e) {
-    const link = e.target.closest('.nav-link');
-    if (!link) return;
-    e.preventDefault();
-    const target = link.getAttribute('data-target');
-    if (target === 'home') {
-      showHome();
-    } else {
-      showDetail(target);
+  projectDefs = [
+    {
+      key: 'linq', tag: 'Automata', title: 'LINQ',
+      desc: 'Category defining biotech software platform',
+      thumbSrc: 'assets/linq-hero.svg', thumbFit: 'contain',
+      detailCategory: 'Automata', detailTitle: 'LINQ.',
+      subheading: 'Reimagining automation in biotech',
+      body: 'Building a category-defining product in the AI era. Leading product design across the platform; shaping vision, systems, and craft, enabling two fund (incl. series C) raises totaling $85m since I joined as a founding designer.'
+    },
+    {
+      key: 'synthace', tag: 'Synthace', title: 'Software',
+      desc: 'Automating life science experimentation',
+      placeholderLabel: 'SYNTHACE',
+      detailCategory: 'Synthace', detailTitle: 'Software.',
+      subheading: 'Automating life sciences for a better future',
+      body: 'Designing the core software experience for Synthace, a platform that automates complex life science experimentation. Focused on translating dense scientific workflows into a clear, dependable interface for researchers.'
+    },
+    {
+      key: 'dyson-lightcycle', tag: 'Dyson', title: 'Lightcycle',
+      desc: 'Connected product that tracks natural daylight',
+      placeholderLabel: 'LIGHTCYCLE',
+      detailCategory: 'Dyson', detailTitle: 'Lightcycle.',
+      subheading: 'A connected product that tracks natural daylight',
+      body: "Product and app design for Dyson Lightcycle, a connected lamp that synchronises colour temperature and brightness to natural daylight patterns based on location and time of day."
+    },
+    {
+      key: 'dyson-concept', tag: 'Dyson', title: 'Automotive',
+      desc: 'HMI designs',
+      thumbSrc: 'assets/dyson-automotive-hero.png', thumbFit: 'contain',
+      detailCategory: 'Dyson', detailTitle: 'Automotive.',
+      subheading: 'HMI designs',
+      body: "An internal concept exploration project looking at how Dyson's design language could extend into future mobility and automotive spaces, exploring form, materiality, and brand expression."
+    },
+    {
+      key: 'automata-brand', tag: 'Automata', title: 'Brand',
+      desc: 'New era: visual ID + rebrand',
+      placeholderLabel: 'AUTOMATA LINQ',
+      detailCategory: 'Automata', detailTitle: 'Brand.',
+      subheading: 'Visual identity and brand system for Automata LINQ',
+      body: "As creative lead for Automata's brand, identity and visual comms, I developed the visual language for Automata LINQ, including logo systems, typography, colour, and motion principles used across product and marketing."
+    },
+    {
+      key: 'other-connected', tag: 'Other', title: 'Portfolio Snapshots',
+      desc: 'Other work and experiments',
+      placeholderLabel: 'OTHER',
+      detailCategory: 'Other', detailTitle: 'Portfolio Snapshots.',
+      subheading: 'Other work and experiments',
+      body: 'An exploratory concept project imagining a unified app experience for managing connected home appliances, with a focus on simple onboarding, device discovery, and at-a-glance status.'
     }
-  });
-</script>
+  ];
 
+  navigateTo = (key) => {
+    this.setState({ view: key });
+    window.scrollTo(0, 0);
+  };
+
+  setHovered = (key) => {
+    this.setState({ hoveredKey: key });
+  };
+
+  clearHovered = (key) => {
+    this.setState((s) => (s.hoveredKey === key ? { hoveredKey: null } : {}));
+  };
+
+  renderVals() {
+    const hoverReveal = this.props.hoverReveal ?? true;
+    const showCategoryTags = this.props.showCategoryTags ?? true;
+    const linkedinNewTab = this.props.linkedinNewTab ?? true;
+
+    const projects = this.projectDefs.map((p) => {
+      const hasImage = !!p.thumbSrc;
+      const thumbSrcSafe = p.thumbSrc || BLANK_SRC;
+      return {
+        ...p,
+        hasImage,
+        isPlaceholder: !hasImage,
+        thumbSrcSafe,
+        thumbBgSize: p.thumbFit === 'contain' ? 'contain' : 'cover',
+        thumbStyle: hasImage ? {
+          width: '100%',
+          aspectRatio: '16 / 9',
+          flexShrink: 0,
+          borderRadius: '8px',
+          marginBottom: '16px',
+          objectFit: p.thumbFit || 'cover',
+          background: '#ffffff',
+          filter: (!hoverReveal || this.state.hoveredKey === p.key) ? 'grayscale(0%)' : 'grayscale(100%)',
+          transition: 'filter 0.35s ease'
+        } : null,
+        onMouseEnter: () => this.setHovered(p.key),
+        onMouseLeave: () => this.clearHovered(p.key),
+        placeholderStyle: {
+          display: hasImage ? 'none' : 'flex',
+          width: '100%',
+          aspectRatio: '16 / 9',
+          flexShrink: 0,
+          borderRadius: '8px',
+          marginBottom: '16px',
+          background: 'repeating-linear-gradient(135deg, #ffffff, #ffffff 10px, #f0f0ee 10px, #f0f0ee 20px)',
+          alignItems: 'center',
+          justifyContent: 'center',
+          color: '#9a9a97',
+          fontFamily: 'monospace',
+          letterSpacing: '0.15em',
+          fontSize: '11px'
+        },
+        onClick: (e) => { e.preventDefault(); this.navigateTo(p.key); }
+      };
+    });
+
+    const view = this.state.view;
+    const isHome = view === 'home';
+    const isDetail = !isHome;
+
+    let detail = null, prevKey = null, nextKey = null;
+    if (isDetail) {
+      const idx = projects.findIndex((p) => p.key === view);
+      const cur = projects[idx];
+      const prev = projects[(idx - 1 + projects.length) % projects.length];
+      const next = projects[(idx + 1) % projects.length];
+      prevKey = prev.key;
+      nextKey = next.key;
+      detail = {
+        category: cur.detailCategory,
+        title: cur.detailTitle,
+        subheading: cur.subheading,
+        body: cur.body,
+        thumbSrc: cur.thumbSrc,
+        thumbSrcSafe: cur.thumbSrcSafe,
+        thumbFit: cur.thumbFit,
+        thumbBgSize: cur.thumbBgSize,
+        hasImage: cur.hasImage,
+        isPlaceholder: cur.isPlaceholder,
+        placeholderLabel: cur.placeholderLabel,
+        thumbStyle: cur.hasImage ? {
+          width: '100%',
+          aspectRatio: '16 / 9',
+          borderRadius: '10px',
+          marginBottom: '56px',
+          objectFit: cur.thumbFit || 'cover',
+          background: '#ffffff'
+        } : null,
+        placeholderStyle: {
+          display: cur.hasImage ? 'none' : 'flex',
+          width: '100%',
+          aspectRatio: '16 / 9',
+          borderRadius: '10px',
+          marginBottom: '56px',
+          background: 'repeating-linear-gradient(135deg, #ffffff, #ffffff 10px, #f0f0ee 10px, #f0f0ee 20px)',
+          alignItems: 'center',
+          justifyContent: 'center',
+          color: '#9a9a97',
+          fontFamily: 'monospace',
+          letterSpacing: '0.15em',
+          fontSize: '12px'
+        }
+      };
+    }
+
+    return {
+      isHome,
+      isDetail,
+      projects,
+      detail,
+      hoverReveal,
+      noHoverReveal: !hoverReveal,
+      showCategoryTags,
+      linkedinNewTab,
+      linkedinSameTab: !linkedinNewTab,
+      goHome: (e) => { e.preventDefault(); this.navigateTo('home'); },
+      goPrev: (e) => { e.preventDefault(); if (prevKey) this.navigateTo(prevKey); },
+      goNext: (e) => { e.preventDefault(); if (nextKey) this.navigateTo(nextKey); }
+    };
+  }
+}
+</script>
 </body>
 </html>
