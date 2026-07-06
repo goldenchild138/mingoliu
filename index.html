@@ -57,7 +57,7 @@
       <main style="flex: 0 0 auto; padding: 0 8px 1px 8px; width: 100%">
         <div style="display: flex; flex-wrap: wrap; align-items: stretch; gap: 1px;">
 
-          <sc-for list="{{ projects }}" as="p">
+          <sc-for list="{{ projects }}" as="p" hint-placeholder-count="0">
             <a href="#" onClick="{{ p.onClick }}" onMouseEnter="{{ p.onMouseEnter }}" onMouseLeave="{{ p.onMouseLeave }}" style="cursor: pointer; text-decoration: none; color: inherit; background: #f2f2f0; border-radius: 10px; padding: 26px; display: flex; flex-direction: column; flex: 1 1 280px; box-sizing: border-box; width: 100%" style-hover="{&quot;background&quot;: &quot;#ececea&quot;}">
 
               <sc-if value="{{ showCategoryTags }}" hint-placeholder-val="{{ true }}">
@@ -65,7 +65,7 @@
               </sc-if>
 
               <sc-if value="{{ p.hasImage }}" hint-placeholder-val="{{ false }}">
-                <img src="{{ p.thumbSrcSafe }}" style="{{ p.thumbStyle }}" />
+                <div style="{{ p.thumbStyle }}"></div>
               </sc-if>
               <sc-if value="{{ p.isPlaceholder }}" hint-placeholder-val="{{ true }}">
                 <div style="{{ p.placeholderStyle }}">{{ p.placeholderLabel }}</div>
@@ -104,7 +104,7 @@
         <h1 style="font-weight: 700; letter-spacing: -0.01em; margin: 0 0 32px 0; font-size: 34px;">{{ detail.title }}</h1>
 
         <sc-if value="{{ detail.hasImage }}" hint-placeholder-val="{{ false }}">
-          <img src="{{ detail.thumbSrcSafe }}" style="{{ detail.thumbStyle }}" />
+          <div style="{{ detail.thumbStyle }}"></div>
         </sc-if>
         <sc-if value="{{ detail.isPlaceholder }}" hint-placeholder-val="{{ true }}">
           <div style="{{ detail.placeholderStyle }}">{{ detail.placeholderLabel }}</div>
@@ -151,7 +151,7 @@ class Component extends DCLogic {
     {
       key: 'dyson-lightcycle', tag: 'Dyson', title: 'Lightcycle',
       desc: 'Connected product that tracks natural daylight',
-      placeholderLabel: 'LIGHTCYCLE',
+      thumbSrc: 'assets/lightcycle-sketch.png', thumbFit: 'contain',
       detailCategory: 'Dyson', detailTitle: 'Lightcycle.',
       subheading: 'A connected product that tracks natural daylight',
       body: "Product and app design for Dyson Lightcycle, a connected lamp that synchronises colour temperature and brightness to natural daylight patterns based on location and time of day."
@@ -215,8 +215,11 @@ class Component extends DCLogic {
           flexShrink: 0,
           borderRadius: '8px',
           marginBottom: '16px',
-          objectFit: p.thumbFit || 'cover',
-          background: '#ffffff',
+          backgroundColor: '#ffffff',
+          backgroundImage: 'url("' + thumbSrcSafe + '")',
+          backgroundSize: p.thumbFit === 'contain' ? 'contain' : 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
           filter: (!hoverReveal || this.state.hoveredKey === p.key) ? 'grayscale(0%)' : 'grayscale(100%)',
           transition: 'filter 0.35s ease'
         } : null,
@@ -270,8 +273,11 @@ class Component extends DCLogic {
           aspectRatio: '16 / 9',
           borderRadius: '10px',
           marginBottom: '56px',
-          objectFit: cur.thumbFit || 'cover',
-          background: '#ffffff'
+          backgroundColor: '#ffffff',
+          backgroundImage: 'url("' + cur.thumbSrcSafe + '")',
+          backgroundSize: cur.thumbFit === 'contain' ? 'contain' : 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
         } : null,
         placeholderStyle: {
           display: cur.hasImage ? 'none' : 'flex',
