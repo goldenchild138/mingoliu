@@ -33,7 +33,7 @@
   <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
     <div style="display: flex; flex-direction: column; flex: 1;" data-screen-label="Home">
 
-      <section style="width: 100%; padding: 8px 8px 1px 8px;">
+      <section style="width: 100%; box-sizing: border-box; padding: 8px 8px 1px 8px;">
         <div style="background: #f2f2f0; border-radius: 10px; padding: 44px 28px;">
           <div style="max-width: 640px;">
             <h1 style="font-weight: 400; line-height: 1.35; letter-spacing: -0.01em; margin: 0 0 28px 0; font-size: 22px;">
@@ -57,7 +57,7 @@
         </div>
       </section>
 
-      <main style="flex: 0 0 auto; padding: 0 8px 1px 8px; width: 100%">
+      <main style="flex: 0 0 auto; padding: 0 8px 1px 8px; width: 100%; box-sizing: border-box;">
         <div style="display: flex; flex-wrap: wrap; align-items: stretch; gap: 1px;">
 
           <sc-for list="{{ projects }}" as="p">
@@ -84,7 +84,7 @@
         </div>
       </main>
 
-      <footer style="width: 100%; padding: 0 8px 8px 8px; font-size: 13px; display: flex; flex: 1;">
+      <footer style="width: 100%; box-sizing: border-box; padding: 0 8px 8px 8px; font-size: 13px; display: flex; flex: 1;">
         <div style="background: #f2f2f0; border-radius: 10px; padding: 20px 28px; display: flex; align-items: flex-end; justify-content: flex-start; min-height: 64px; flex: 1; box-sizing: border-box;">
           <span>© Ming Liu</span>
         </div>
@@ -94,7 +94,7 @@
 
   <sc-if value="{{ isDetail }}" hint-placeholder-val="{{ false }}">
     <div style="display: flex; flex-direction: column; flex: 1;" data-screen-label="Project detail">
-      <header style="width: 100%; padding: 24px 40px; display: flex; align-items: center; justify-content: space-between; font-size: 13px;">
+      <header style="width: 100%; box-sizing: border-box; padding: 24px 40px; display: flex; align-items: center; justify-content: space-between; font-size: 13px;">
         <a href="#" onClick="{{ goHome }}" style="text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(17,17,17,0.35); letter-spacing: 0.02em; cursor: pointer; color: inherit;" style-hover="{&quot;textDecorationColor&quot;: &quot;rgba(17,17,17,1)&quot;}">Index /</a>
         <nav style="display: flex; align-items: center; gap: 24px;">
           <a href="#" onClick="{{ goPrev }}" style="text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(17,17,17,0.35); color: rgba(20,20,20,0.7); cursor: pointer;" style-hover="{&quot;textDecorationColor&quot;: &quot;rgba(17,17,17,1)&quot;}">← Previous</a>
@@ -102,7 +102,7 @@
         </nav>
       </header>
 
-      <main style="flex: 1; padding: 0 40px 64px 40px;">
+      <main style="flex: 1; padding: 0 40px 64px 40px; box-sizing: border-box;">
         <p style="text-transform: uppercase; letter-spacing: 0.2em; color: rgba(20,20,20,0.5); margin: 0 0 8px 0; font-size: 11px;">{{ detail.category }}</p>
         <h1 style="font-weight: 700; letter-spacing: -0.01em; margin: 0 0 32px 0; font-size: 34px;">{{ detail.title }}</h1>
 
