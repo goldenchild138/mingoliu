@@ -172,7 +172,7 @@ class Component extends DCLogic {
     {
       key: 'automata-brand', tag: 'Automata', title: 'Brand',
       desc: 'New era: visual ID + rebrand',
-      thumbSrc: 'assets/automata-brand-hero.png', thumbFit: 'contain',
+      thumbSrc: 'assets/automata-brand-hero.png', thumbFit: 'cover',
       placeholderLabel: 'AUTOMATA LINQ',
       detailCategory: 'Automata', detailTitle: 'Brand.',
       subheading: 'Visual identity and brand system for Automata LINQ',
@@ -222,6 +222,7 @@ class Component extends DCLogic {
           borderRadius: '8px',
           marginBottom: '16px',
           objectFit: p.thumbFit || 'cover',
+          objectPosition: 'center center',
           background: '#ffffff',
           filter: (!hoverReveal || this.state.hoveredKey === p.key) ? 'grayscale(0%)' : 'grayscale(100%)',
           transition: 'filter 0.35s ease'
@@ -277,6 +278,7 @@ class Component extends DCLogic {
           borderRadius: '10px',
           marginBottom: '56px',
           objectFit: cur.thumbFit || 'cover',
+          objectPosition: 'center center',
           background: '#ffffff'
         } : null,
         placeholderStyle: {
