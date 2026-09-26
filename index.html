@@ -25,10 +25,40 @@
   <style>
     body { margin: 0; }
     html { scrollbar-gutter: stable; }
+    @keyframes longScroll { 0%, 6% { object-position: 50% 0%; animation-timing-function: cubic-bezier(0.45, 0, 0.55, 1); } 94%, 100% { object-position: 50% 100%; } }
+    @keyframes amM0 { 0%, 100% { d: path("M488.0,391.2C516.3,391.0 538.6,398.6 562.0,418.0C585.5,437.3 609.2,462.6 610.2,492.0C611.1,521.4 590.5,546.7 567.1,571.1C543.6,595.4 522.3,614.9 488.0,618.8C453.7,622.7 412.5,615.7 388.7,591.3C364.8,567.0 359.0,525.1 364.1,492.0C369.2,458.9 391.3,438.5 415.1,419.1C439.0,399.7 459.7,391.4 488.0,391.2Z"); } 20% { d: path("M488.0,388.3C525.0,384.5 566.0,366.0 594.0,386.0C622.0,405.9 639.6,457.2 633.6,492.0C627.6,526.8 590.9,540.2 562.9,566.9C534.9,593.7 516.6,631.3 488.0,631.1C459.4,630.9 439.9,592.6 414.2,565.8C388.4,539.1 356.5,522.8 354.1,492.0C351.7,461.2 376.0,425.7 401.7,405.7C427.5,385.8 451.0,392.1 488.0,388.3Z"); } 40% { d: path("M488.0,350.6C522.8,354.7 539.8,385.0 567.8,412.2C595.8,439.4 634.6,462.5 633.4,492.0C632.3,521.5 589.8,537.3 561.8,565.8C533.9,594.4 517.9,638.8 488.0,640.3C458.1,641.8 428.3,602.1 406.4,573.6C384.5,545.1 378.0,527.2 374.2,492.0C370.4,456.8 364.8,417.9 386.7,390.7C408.5,363.5 453.2,346.5 488.0,350.6Z"); } 60% { d: path("M488.0,379.5C522.0,381.6 543.6,387.2 571.2,408.8C598.8,430.4 632.1,460.4 631.7,492.0C631.3,523.6 596.6,544.9 569.0,573.0C541.3,601.0 522.3,634.8 488.0,638.0C453.7,641.1 412.0,617.6 390.5,589.5C368.9,561.5 375.4,528.8 376.1,492.0C376.9,455.2 372.8,420.0 394.3,398.3C415.9,376.7 454.0,377.5 488.0,379.5Z"); } 80% { d: path("M488.0,384.3C520.9,383.3 548.8,383.2 576.1,403.9C603.4,424.6 632.1,460.2 630.1,492.0C628.0,523.8 592.8,544.2 565.5,569.5C538.2,594.8 519.7,621.8 488.0,623.6C456.3,625.5 427.1,604.6 400.7,579.3C374.3,554.0 350.0,524.7 350.8,492.0C351.6,459.3 378.7,429.8 405.1,409.1C431.5,388.4 455.1,385.3 488.0,384.3Z"); } }
+    @keyframes amP0 { 0%, 100% { transform: scale(1,1); } 30% { transform: scale(1.09,0.92); } 65% { transform: scale(0.95,1.06); } }
+    @keyframes amM1 { 0%, 100% { d: path("M522.0,353.8C556.5,353.5 588.4,375.0 612.4,401.6C636.4,428.2 647.7,458.0 646.9,492.0C646.2,526.0 632.6,556.6 608.6,578.6C584.5,600.5 554.6,607.0 522.0,606.2C489.4,605.5 465.0,596.8 439.1,574.9C413.3,552.9 389.0,525.1 387.8,492.0C386.6,458.9 407.0,429.4 432.8,402.8C458.6,376.2 487.5,354.0 522.0,353.8Z"); } 20% { d: path("M522.0,364.4C555.2,361.8 587.4,374.5 615.0,399.0C642.6,423.6 663.6,454.3 665.6,492.0C667.6,529.7 652.9,571.6 625.3,595.3C597.7,619.0 559.7,617.3 522.0,615.3C484.3,613.3 450.6,608.4 429.3,584.7C407.9,561.0 408.3,525.1 410.9,492.0C413.4,458.9 421.1,437.1 442.5,412.5C463.9,388.0 488.8,367.0 522.0,364.4Z"); } 40% { d: path("M522.0,383.7C562.4,384.2 604.1,367.2 626.0,388.0C647.8,408.9 635.3,451.7 635.6,492.0C636.0,532.3 649.7,577.4 627.8,597.8C605.9,618.2 561.0,600.0 522.0,598.3C483.0,596.6 445.0,609.5 424.9,589.1C404.9,568.6 419.5,531.1 417.7,492.0C416.0,452.9 395.7,406.6 415.7,385.7C435.8,364.9 481.6,383.3 522.0,383.7Z"); } 60% { d: path("M522.0,357.5C558.9,361.7 584.6,381.1 607.1,406.9C629.6,432.8 635.5,455.8 639.0,492.0C642.6,528.2 647.9,571.6 625.4,595.4C602.9,619.2 558.1,619.5 522.0,615.8C485.9,612.1 463.2,599.9 437.9,576.1C412.7,552.3 395.3,528.7 390.9,492.0C386.5,455.3 389.8,410.9 415.1,385.1C440.3,359.2 485.1,353.3 522.0,357.5Z"); } 80% { d: path("M522.0,357.3C558.8,361.2 583.4,380.5 607.6,406.4C631.8,432.3 647.5,458.6 648.0,492.0C648.4,525.4 634.4,558.5 610.2,580.2C585.9,601.9 557.0,603.8 522.0,604.9C487.0,606.0 454.2,607.6 428.1,585.9C402.1,564.2 388.7,530.4 386.4,492.0C384.1,453.6 390.2,412.1 416.2,386.2C442.3,360.3 485.2,353.5 522.0,357.3Z"); } }
+    @keyframes amP1 { 0%, 100% { transform: scale(1,1); } 30% { transform: scale(0.93,1.08); } 65% { transform: scale(1.06,0.95); } }
+    @keyframes amM2 { 0%, 100% { d: path("M505.0,371.6C543.0,368.7 586.2,377.2 611.1,403.9C636.0,430.5 638.4,473.0 634.6,510.0C630.7,547.0 616.0,567.0 591.1,596.1C566.2,625.3 539.4,660.4 505.0,661.6C470.6,662.8 440.7,631.7 412.5,602.5C384.3,573.3 358.0,545.4 358.2,510.0C358.4,474.6 385.3,445.1 413.5,418.5C441.8,391.9 467.0,374.4 505.0,371.6Z"); } 20% { d: path("M505.0,354.9C538.7,352.6 576.3,386.6 598.6,416.4C620.9,446.2 621.3,474.3 620.9,510.0C620.6,545.7 619.1,573.0 596.8,601.8C574.5,630.6 543.2,656.9 505.0,659.8C466.8,662.8 421.2,645.9 397.9,617.1C374.7,588.2 379.3,546.3 384.1,510.0C389.0,473.7 399.9,458.0 423.2,428.2C446.4,398.3 471.3,357.1 505.0,354.9Z"); } 40% { d: path("M505.0,365.7C537.6,368.8 558.2,405.5 581.7,433.3C605.2,461.0 621.6,474.9 627.1,510.0C632.7,545.1 634.3,589.2 610.8,615.8C587.3,642.4 543.1,650.8 505.0,648.1C466.9,645.5 441.9,628.7 412.9,602.1C383.8,575.6 354.2,545.6 354.0,510.0C353.9,474.4 383.0,444.8 412.0,417.0C441.1,389.3 472.4,362.6 505.0,365.7Z"); } 60% { d: path("M505.0,366.2C539.8,362.5 576.3,382.3 605.1,409.9C633.8,437.6 659.4,476.4 654.5,510.0C649.6,543.6 608.2,558.8 579.4,584.4C550.7,610.1 536.7,640.5 505.0,643.5C473.3,646.6 441.0,625.9 414.8,600.2C388.6,574.5 367.1,542.9 369.0,510.0C370.8,477.1 398.1,456.9 424.2,429.2C450.4,401.6 470.2,369.9 505.0,366.2Z"); } 80% { d: path("M505.0,396.0C537.9,392.0 577.4,392.0 601.1,413.9C624.8,435.8 631.9,476.7 628.3,510.0C624.7,543.3 606.0,557.8 582.3,587.3C558.6,616.9 538.2,660.1 505.0,663.5C471.8,667.0 431.1,635.0 409.6,605.4C388.0,575.9 389.0,542.8 392.9,510.0C396.8,477.2 408.3,456.8 429.9,434.9C451.4,412.9 472.1,400.0 505.0,396.0Z"); } }
+    @keyframes amP2 { 0%, 100% { transform: scale(1,1); } 30% { transform: scale(1.07,0.94); } 65% { transform: scale(0.94,1.07); } }
+    @keyframes amM3 { 0%, 100% { d: path("M510.0,366.9C541.8,366.4 574.8,390.5 593.8,416.2C612.8,441.8 606.7,465.6 608.8,500.0C610.9,534.4 623.9,569.2 604.9,594.9C585.9,620.6 541.1,639.1 510.0,633.7C478.9,628.3 461.9,592.6 443.1,566.9C424.3,541.2 414.8,528.5 412.1,500.0C409.3,471.5 409.8,444.3 428.7,418.7C447.5,393.1 478.2,367.3 510.0,366.9Z"); } 20% { d: path("M510.0,376.9C541.2,371.6 582.2,381.4 604.9,405.1C627.6,428.8 631.9,467.5 627.8,500.0C623.8,532.5 606.5,549.7 583.9,573.9C561.2,598.0 537.8,626.2 510.0,625.6C482.2,625.0 466.1,595.0 439.2,570.8C412.3,546.7 369.6,526.6 370.3,500.0C370.9,473.4 415.7,456.3 442.6,432.6C469.5,408.9 478.8,382.2 510.0,376.9Z"); } 40% { d: path("M510.0,382.4C543.2,382.5 575.9,391.5 595.9,414.1C615.9,436.7 616.3,469.3 614.0,500.0C611.7,530.7 603.8,553.0 583.9,573.9C563.9,594.7 541.0,605.6 510.0,608.2C479.0,610.8 443.0,608.2 422.6,587.4C402.3,566.5 404.1,533.4 404.2,500.0C404.4,466.6 403.1,436.1 423.5,413.5C443.8,390.8 476.8,382.3 510.0,382.4Z"); } 60% { d: path("M510.0,382.8C545.1,383.6 577.4,388.3 599.2,410.8C620.9,433.4 624.1,466.7 623.1,500.0C622.1,533.3 615.6,558.3 593.8,583.8C572.1,609.4 539.9,635.3 510.0,632.9C480.1,630.5 460.1,597.1 438.4,571.6C416.8,546.0 401.6,531.7 397.4,500.0C393.3,468.3 395.1,429.3 416.8,406.8C438.4,384.2 474.9,382.0 510.0,382.8Z"); } 80% { d: path("M510.0,362.8C542.7,367.3 556.9,400.4 583.2,426.8C609.5,453.2 644.7,469.8 646.7,500.0C648.7,530.2 620.0,557.1 593.7,583.7C567.4,610.3 540.1,640.2 510.0,638.2C479.9,636.2 457.6,599.6 436.9,573.1C416.3,546.5 407.4,532.6 402.8,500.0C398.3,467.4 392.8,429.8 413.4,403.4C434.0,377.0 477.3,358.3 510.0,362.8Z"); } }
+    @keyframes amP3 { 0%, 100% { transform: scale(1,1); } 30% { transform: scale(0.94,1.08); } 65% { transform: scale(1.08,0.93); } }
+    @keyframes amR1 { 0%, 100% { transform: scale(1); } 50% { transform: scale(0.9); } }
+    @keyframes amR2 { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+    @keyframes syNib { 0% { transform: translate(662px,592px); opacity: 0; } 3.64% { transform: translate(662px,592px); opacity: 1; } 7.27% { transform: translate(662.0px,592.0px); opacity: 1; } 8.18% { transform: translate(662.1px,592.0px); opacity: 1; } 9.09% { transform: translate(662.4px,592.0px); opacity: 1; } 10.00% { transform: translate(663.4px,592.0px); opacity: 1; } 10.91% { transform: translate(665.2px,592.0px); opacity: 1; } 11.82% { transform: translate(668.3px,592.0px); opacity: 1; } 12.73% { transform: translate(672.9px,592.0px); opacity: 1; } 13.64% { transform: translate(679.3px,592.0px); opacity: 1; } 14.55% { transform: translate(687.8px,592.0px); opacity: 1; } 15.45% { transform: translate(698.8px,592.0px); opacity: 1; } 16.36% { transform: translate(712.4px,592.0px); opacity: 1; } 17.27% { transform: translate(729.1px,592.0px); opacity: 1; } 18.18% { transform: translate(749.1px,592.0px); opacity: 1; } 19.09% { transform: translate(772.8px,592.0px); opacity: 1; } 20.00% { transform: translate(800.4px,592.0px); opacity: 1; } 20.91% { transform: translate(832.2px,592.0px); opacity: 1; } 21.82% { transform: translate(868.6px,592.0px); opacity: 1; } 22.73% { transform: translate(909.8px,592.0px); opacity: 1; } 23.64% { transform: translate(915.3px,533.2px); opacity: 1; } 24.55% { transform: translate(894.5px,491.8px); opacity: 1; } 25.45% { transform: translate(872.1px,457.2px); opacity: 1; } 26.36% { transform: translate(849.5px,428.7px); opacity: 1; } 27.27% { transform: translate(827.8px,405.5px); opacity: 1; } 28.18% { transform: translate(807.4px,386.9px); opacity: 1; } 29.09% { transform: translate(788.8px,372.3px); opacity: 1; } 30.00% { transform: translate(772.3px,360.9px); opacity: 1; } 30.91% { transform: translate(758.1px,352.3px); opacity: 1; } 31.82% { transform: translate(746.0px,345.9px); opacity: 1; } 32.73% { transform: translate(736.1px,341.2px); opacity: 1; } 33.64% { transform: translate(728.3px,337.9px); opacity: 1; } 34.55% { transform: translate(722.3px,335.6px); opacity: 1; } 35.45% { transform: translate(718.0px,334.0px); opacity: 1; } 36.36% { transform: translate(715.1px,333.0px); opacity: 1; } 37.27% { transform: translate(713.3px,332.4px); opacity: 1; } 38.18% { transform: translate(712.4px,332.1px); opacity: 1; } 39.09% { transform: translate(712.0px,332.0px); opacity: 1; } 40.00% { transform: translate(712.0px,332.0px); opacity: 1; } 78.18% { transform: translate(712px,332px); opacity: 1; } 84.55% { transform: translate(712px,332px); opacity: 0; } 100% { transform: translate(712px,332px); opacity: 0; } }
+    @keyframes syLineA { 0% { stroke-dashoffset: 276; opacity: 1; } 7.27% { stroke-dashoffset: 276.0; } 8.18% { stroke-dashoffset: 275.9; } 9.09% { stroke-dashoffset: 275.6; } 10.00% { stroke-dashoffset: 274.6; } 10.91% { stroke-dashoffset: 272.8; } 11.82% { stroke-dashoffset: 269.7; } 12.73% { stroke-dashoffset: 265.1; } 13.64% { stroke-dashoffset: 258.7; } 14.55% { stroke-dashoffset: 250.2; } 15.45% { stroke-dashoffset: 239.2; } 16.36% { stroke-dashoffset: 225.6; } 17.27% { stroke-dashoffset: 208.9; } 18.18% { stroke-dashoffset: 188.9; } 19.09% { stroke-dashoffset: 165.2; } 20.00% { stroke-dashoffset: 137.6; } 20.91% { stroke-dashoffset: 105.8; } 21.82% { stroke-dashoffset: 69.4; } 22.73% { stroke-dashoffset: 28.2; } 23.64% { stroke-dashoffset: 0.0; } 24.55% { stroke-dashoffset: 0.0; } 25.45% { stroke-dashoffset: 0.0; } 26.36% { stroke-dashoffset: 0.0; } 27.27% { stroke-dashoffset: 0.0; } 28.18% { stroke-dashoffset: 0.0; } 29.09% { stroke-dashoffset: 0.0; } 30.00% { stroke-dashoffset: 0.0; } 30.91% { stroke-dashoffset: 0.0; } 31.82% { stroke-dashoffset: 0.0; } 32.73% { stroke-dashoffset: 0.0; } 33.64% { stroke-dashoffset: 0.0; } 34.55% { stroke-dashoffset: 0.0; } 35.45% { stroke-dashoffset: 0.0; } 36.36% { stroke-dashoffset: 0.0; } 37.27% { stroke-dashoffset: 0.0; } 38.18% { stroke-dashoffset: 0.0; } 39.09% { stroke-dashoffset: 0.0; } 40.00% { stroke-dashoffset: 0.0; } 78.18% { stroke-dashoffset: 0; opacity: 1; } 84.55% { opacity: 0; } 100% { stroke-dashoffset: 0; opacity: 0; } }
+    @keyframes syLineB { 0% { stroke-dashoffset: 313; opacity: 1; } 7.27% { stroke-dashoffset: 313.0; } 8.18% { stroke-dashoffset: 313.0; } 9.09% { stroke-dashoffset: 313.0; } 10.00% { stroke-dashoffset: 313.0; } 10.91% { stroke-dashoffset: 313.0; } 11.82% { stroke-dashoffset: 313.0; } 12.73% { stroke-dashoffset: 313.0; } 13.64% { stroke-dashoffset: 313.0; } 14.55% { stroke-dashoffset: 313.0; } 15.45% { stroke-dashoffset: 313.0; } 16.36% { stroke-dashoffset: 313.0; } 17.27% { stroke-dashoffset: 313.0; } 18.18% { stroke-dashoffset: 313.0; } 19.09% { stroke-dashoffset: 313.0; } 20.00% { stroke-dashoffset: 313.0; } 20.91% { stroke-dashoffset: 313.0; } 21.82% { stroke-dashoffset: 313.0; } 22.73% { stroke-dashoffset: 313.0; } 23.64% { stroke-dashoffset: 294.8; } 24.55% { stroke-dashoffset: 248.4; } 25.45% { stroke-dashoffset: 207.1; } 26.36% { stroke-dashoffset: 170.6; } 27.27% { stroke-dashoffset: 138.7; } 28.18% { stroke-dashoffset: 111.1; } 29.09% { stroke-dashoffset: 87.4; } 30.00% { stroke-dashoffset: 67.3; } 30.91% { stroke-dashoffset: 50.6; } 31.82% { stroke-dashoffset: 36.9; } 32.73% { stroke-dashoffset: 25.9; } 33.64% { stroke-dashoffset: 17.3; } 34.55% { stroke-dashoffset: 10.9; } 35.45% { stroke-dashoffset: 6.3; } 36.36% { stroke-dashoffset: 3.2; } 37.27% { stroke-dashoffset: 1.4; } 38.18% { stroke-dashoffset: 0.4; } 39.09% { stroke-dashoffset: 0.1; } 40.00% { stroke-dashoffset: 0.0; } 78.18% { stroke-dashoffset: 0; opacity: 1; } 84.55% { opacity: 0; } 100% { stroke-dashoffset: 0; opacity: 0; } }
+    @keyframes syPopA { 0% { transform: scale(0); opacity: 0; } 0.00% { transform: scale(0); opacity: 0; } 3.27% { transform: scale(1.15); opacity: 1; } 5.45% { transform: scale(1); opacity: 1; } 78.18% { transform: scale(1); opacity: 1; } 84.55% { transform: scale(1); opacity: 0; } 100% { transform: scale(0); opacity: 0; } }
+    @keyframes syPopB { 0% { transform: scale(0); opacity: 0; } 22.18% { transform: scale(0); opacity: 0; } 25.45% { transform: scale(1.15); opacity: 1; } 27.64% { transform: scale(1); opacity: 1; } 78.18% { transform: scale(1); opacity: 1; } 84.55% { transform: scale(1); opacity: 0; } 100% { transform: scale(0); opacity: 0; } }
+    @keyframes syPopC { 0% { transform: scale(0); opacity: 0; } 38.55% { transform: scale(0); opacity: 0; } 41.82% { transform: scale(1.15); opacity: 1; } 44.00% { transform: scale(1); opacity: 1; } 78.18% { transform: scale(1); opacity: 1; } 84.55% { transform: scale(1); opacity: 0; } 100% { transform: scale(0); opacity: 0; } }
+    @keyframes amW0 { 0%, 100% { transform: rotate(0deg) scale(1,1) translate(0px,0px); } 33% { transform: rotate(-14deg) scale(1.06,0.95) translate(-10px,-6px); } 66% { transform: rotate(6deg) scale(0.95,1.05) translate(6px,8px); } }
+    @keyframes amW1 { 0%, 100% { transform: rotate(0deg) scale(1,1) translate(0px,0px); } 33% { transform: rotate(12deg) scale(0.94,1.06) translate(8px,-8px); } 66% { transform: rotate(-8deg) scale(1.05,0.96) translate(-6px,6px); } }
+    @keyframes amW2 { 0%, 100% { transform: rotate(0deg) scale(1,1) translate(0px,0px); } 33% { transform: rotate(-10deg) scale(1.05,0.94) translate(-6px,8px); } 66% { transform: rotate(10deg) scale(0.96,1.04) translate(8px,-6px); } }
+    @keyframes amW3 { 0%, 100% { transform: rotate(0deg) scale(1,1) translate(0px,0px); } 33% { transform: rotate(8deg) scale(0.96,1.05) translate(4px,6px); } 66% { transform: rotate(-6deg) scale(1.04,0.97) translate(-6px,-4px); } }
+    @keyframes amT0 { 0% { fill-opacity: 0; } 8.75% { fill-opacity: 1; } 67.50% { fill-opacity: 0; } 70.63% { fill-opacity: 1; } 73.75% { fill-opacity: 0; } 76.88% { fill-opacity: 1; } 80.00% { fill-opacity: 0; } 100% { fill-opacity: 0; } }
+    @keyframes amT1 { 0% { fill-opacity: 0; } 11.88% { fill-opacity: 1; } 67.50% { fill-opacity: 0; } 70.63% { fill-opacity: 1; } 73.75% { fill-opacity: 0; } 76.88% { fill-opacity: 1; } 80.00% { fill-opacity: 0; } 100% { fill-opacity: 0; } }
+    @keyframes amT2 { 0% { fill-opacity: 0; } 15.00% { fill-opacity: 1; } 67.50% { fill-opacity: 0; } 70.63% { fill-opacity: 1; } 73.75% { fill-opacity: 0; } 76.88% { fill-opacity: 1; } 80.00% { fill-opacity: 0; } 100% { fill-opacity: 0; } }
+    @keyframes amT3 { 0% { fill-opacity: 0; } 18.13% { fill-opacity: 1; } 67.50% { fill-opacity: 0; } 70.63% { fill-opacity: 1; } 73.75% { fill-opacity: 0; } 76.88% { fill-opacity: 1; } 80.00% { fill-opacity: 0; } 100% { fill-opacity: 0; } }
+    @keyframes amT4 { 0% { fill-opacity: 0; } 21.25% { fill-opacity: 1; } 67.50% { fill-opacity: 0; } 70.63% { fill-opacity: 1; } 73.75% { fill-opacity: 0; } 76.88% { fill-opacity: 1; } 80.00% { fill-opacity: 0; } 100% { fill-opacity: 0; } }
+    @keyframes amCx { 0% { transform: translateX(0px); } 8.75% { transform: translateX(68.2px); } 11.88% { transform: translateX(121.0px); } 15.00% { transform: translateX(144.7px); } 18.13% { transform: translateX(168.5px); } 21.25% { transform: translateX(224.7px); } 100% { transform: translateX(224.7px); } }
+    @keyframes amCo { 0.00% { opacity: 1; } 4.38% { opacity: 0; } 8.75% { opacity: 1; } 21.25% { opacity: 1; } 27.50% { opacity: 0; } 33.75% { opacity: 1; } 40.00% { opacity: 0; } 46.25% { opacity: 1; } 52.50% { opacity: 0; } 58.75% { opacity: 1; } 65.00% { opacity: 0; } 67.50% { opacity: 0; } 100% { opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) { svg[data-amoeba] * { animation: none !important; } svg[data-amoeba] tspan { fill-opacity: 1 !important; } svg[data-amoeba] .am-cur { opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) { img[data-long] { animation: none !important; } }
   </style>
 </helmet>
 
-<div style="min-height: 100vh; display: flex; flex-direction: column; background: #fafaf9; color: #141414; font-family: 'Barlow', sans-serif;">
+<div style="min-height: 100vh; display: flex; flex-direction: column; background: #f4f4f5; color: #141414; font-family: 'Barlow', sans-serif;">
 
   <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
     <div style="display: flex; flex-direction: column; flex: 1;" data-screen-label="Home">
@@ -82,6 +112,22 @@
           </sc-for>
 
         </div>
+        <sc-if value="{{ detail.galleryLate }}" hint-placeholder-val="{{ false }}">
+          <div data-gallery-grid="1" style="{{ detail.galleryGridStyle }}">
+            <sc-for list="{{ detail.gallery }}" as="g" hint-placeholder-count="12">
+              <div onClick="{{ g.onClick }}" onMouseEnter="{{ g.onMouseEnter }}" onMouseLeave="{{ g.onMouseLeave }}" style="{{ g.tileStyle }}">
+                <sc-if value="{{ g.notAmoeba }}" hint-placeholder-val="{{ true }}">
+                  <img src="{{ g.src }}" data-long="{{ g.scroll }}" loading="lazy" decoding="async" style="{{ g.imgStyle }}" />
+                </sc-if>
+                <sc-if value="{{ g.amoeba }}" hint-placeholder-val="{{ false }}">{{ g.amoeba }}</sc-if>
+                <div style="{{ g.strokeStyle }}"></div>
+                <div style="{{ g.captionStyle }}">
+                  <span style="{{ g.captionTextStyle }}">{{ g.caption }}</span>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </sc-if>
       </main>
 
       <footer style="width: 100%; box-sizing: border-box; padding: 0 8px 8px 8px; font-size: 13px; display: flex; flex: 1;">
@@ -93,7 +139,7 @@
   </sc-if>
 
   <sc-if value="{{ isDetail }}" hint-placeholder-val="{{ false }}">
-    <div style="display: flex; flex-direction: column; flex: 1;" data-screen-label="Project detail">
+    <div style="display: flex; flex-direction: column; flex: 1; background: #f4f4f5;" data-screen-label="Project detail">
       <header style="width: 100%; box-sizing: border-box; padding: 24px 40px; display: flex; align-items: center; justify-content: space-between; font-size: 13px;">
         <a href="#" onClick="{{ goHome }}" style="text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(17,17,17,0.35); letter-spacing: 0.02em; cursor: pointer; color: inherit;" style-hover="{&quot;textDecorationColor&quot;: &quot;rgba(17,17,17,1)&quot;}">Index /</a>
         <nav style="display: flex; align-items: center; gap: 24px;">
@@ -107,16 +153,92 @@
         <h1 style="font-weight: 700; letter-spacing: -0.01em; margin: 0 0 32px 0; font-size: 34px;">{{ detail.title }}</h1>
 
         <sc-if value="{{ detail.hasImage }}" hint-placeholder-val="{{ false }}">
-          <img src="{{ detail.thumbSrcSafe }}" style="{{ detail.thumbStyle }}" />
+          <div style="position: relative; line-height: 0;">
+            <img src="{{ detail.thumbSrcSafe }}" onClick="{{ detail.onHeroClick }}" style="{{ detail.thumbStyle }}" />
+            <sc-if value="{{ detail.heroCaption }}" hint-placeholder-val="{{ false }}">
+              <div style="position: absolute; left: 8px; bottom: 64px; max-width: calc(100% - 16px); box-sizing: border-box; padding: 4px 8px; display: flex; text-align: left; background: #f4f4f5; border-radius: 4px; pointer-events: none;">
+                <span style="font-size: 13px; line-height: 1.45; color: #18181b; text-wrap: pretty;">{{ detail.heroCaption }}</span>
+              </div>
+            </sc-if>
+          </div>
         </sc-if>
         <sc-if value="{{ detail.isPlaceholder }}" hint-placeholder-val="{{ true }}">
           <div style="{{ detail.placeholderStyle }}">{{ detail.placeholderLabel }}</div>
         </sc-if>
-
-        <div style="max-width: 640px;">
+        <div style="max-width: 640px; margin: 0 0 56px 0;">
           <h2 style="font-weight: 600; margin: 0 0 20px 0; font-size: 18px;">{{ detail.subheading }}</h2>
           <p style="line-height: 1.7; color: rgba(20,20,20,0.7); margin: 0; font-size: 14px;">{{ detail.body }}</p>
         </div>
+        <sc-if value="{{ detail.preVideoImg }}" hint-placeholder-val="{{ false }}">
+          <div style="position: relative; margin: 0 0 10px 0; border-radius: 10px; box-shadow: 0 0 0 8px #ffffff; line-height: 0;">
+            <img src="{{ detail.preVideoImg }}" alt="" style="width: 100%; display: block; border-radius: 10px; background: #f2f2f0;" />
+            <div style="position: absolute; left: 8px; bottom: 8px; max-width: calc(100% - 16px); box-sizing: border-box; padding: 4px 8px; display: flex; text-align: left; background: #f4f4f5; border-radius: 4px; pointer-events: none;">
+              <span style="font-size: 13px; line-height: 1.45; color: #18181b; text-wrap: pretty;">{{ detail.preVideoCaption }}</span>
+            </div>
+          </div>
+        </sc-if>
+        <sc-if value="{{ detail.galleryEarly }}" hint-placeholder-val="{{ false }}">
+          <div data-gallery-grid="1" style="{{ detail.galleryGridStyle }}">
+            <sc-for list="{{ detail.gallery }}" as="g" hint-placeholder-count="12">
+              <div onClick="{{ g.onClick }}" onMouseEnter="{{ g.onMouseEnter }}" onMouseLeave="{{ g.onMouseLeave }}" style="{{ g.tileStyle }}">
+                <sc-if value="{{ g.notAmoeba }}" hint-placeholder-val="{{ true }}">
+                  <img src="{{ g.src }}" data-long="{{ g.scroll }}" loading="lazy" decoding="async" style="{{ g.imgStyle }}" />
+                </sc-if>
+                <sc-if value="{{ g.amoeba }}" hint-placeholder-val="{{ false }}">{{ g.amoeba }}</sc-if>
+                <div style="{{ g.strokeStyle }}"></div>
+                <div style="{{ g.captionStyle }}">
+                  <span style="{{ g.captionTextStyle }}">{{ g.caption }}</span>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </sc-if>
+        <sc-if value="{{ detail.splitOn }}" hint-placeholder-val="{{ false }}">
+          <div data-gallery-grid="1" style="display: flex; flex-direction: column; gap: 18px; margin: 8px 0 64px 0;">
+            <sc-for list="{{ detail.splitBlocks }}" as="b" hint-placeholder-count="4">
+              <sc-if value="{{ b.isWide }}" hint-placeholder-val="{{ true }}">
+                <div onClick="{{ b.item.onClick }}" style="position: relative; border-radius: 10px; background: #f2f2f0; box-shadow: 0 0 0 8px #ffffff; line-height: 0; cursor: zoom-in;"><img src="{{ b.item.src }}" loading="lazy" decoding="async" alt="" style="width: 100%; height: auto; display: block; border-radius: 10px;" /><div style="position: absolute; left: 8px; bottom: 8px; max-width: calc(100% - 16px); box-sizing: border-box; padding: 4px 8px; display: flex; text-align: left; background: #f4f4f5; border-radius: 4px; pointer-events: none;"><span style="font-size: 13px; line-height: 1.45; color: #18181b; text-wrap: pretty;">{{ b.item.caption }}</span></div></div>
+              </sc-if>
+              <sc-if value="{{ b.isPair }}" hint-placeholder-val="{{ false }}">
+                <div style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 18px; align-items: start;">
+                  <div style="display: flex; flex-direction: column; gap: 18px;">
+                    <sc-for list="{{ b.left }}" as="t" hint-placeholder-count="2">
+                      <div onClick="{{ t.onClick }}" style="position: relative; border-radius: 10px; background: #f2f2f0; box-shadow: 0 0 0 8px #ffffff; line-height: 0; cursor: zoom-in;"><img src="{{ t.src }}" loading="lazy" decoding="async" alt="" style="width: 100%; height: auto; display: block; border-radius: 10px;" /><div style="position: absolute; left: 8px; bottom: 8px; max-width: calc(100% - 16px); box-sizing: border-box; padding: 4px 8px; display: flex; text-align: left; background: #f4f4f5; border-radius: 4px; pointer-events: none;"><span style="font-size: 13px; line-height: 1.45; color: #18181b; text-wrap: pretty;">{{ t.caption }}</span></div></div>
+                    </sc-for>
+                  </div>
+                  <div style="display: flex; flex-direction: column; gap: 18px;">
+                    <sc-for list="{{ b.right }}" as="t" hint-placeholder-count="2">
+                      <div onClick="{{ t.onClick }}" style="position: relative; border-radius: 10px; background: #f2f2f0; box-shadow: 0 0 0 8px #ffffff; line-height: 0; cursor: zoom-in;"><img src="{{ t.src }}" loading="lazy" decoding="async" alt="" style="width: 100%; height: auto; display: block; border-radius: 10px;" /><div style="position: absolute; left: 8px; bottom: 8px; max-width: calc(100% - 16px); box-sizing: border-box; padding: 4px 8px; display: flex; text-align: left; background: #f4f4f5; border-radius: 4px; pointer-events: none;"><span style="font-size: 13px; line-height: 1.45; color: #18181b; text-wrap: pretty;">{{ t.caption }}</span></div></div>
+                    </sc-for>
+                  </div>
+                </div>
+              </sc-if>
+            </sc-for>
+          </div>
+        </sc-if>
+        <sc-if value="{{ detail.heroVideo }}" hint-placeholder-val="{{ false }}">
+          <div style="position: relative; margin: 0 0 56px 0; border-radius: 10px; overflow: hidden; aspect-ratio: 1920 / 930; background: #0d0d0d; box-shadow: 0 0 0 8px #ffffff;">
+            <iframe src="{{ detail.heroVideo }}" title="Synthace — create aliquot walkthrough" allow="autoplay; encrypted-media; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowfullscreen="" style="position: absolute; left: 0; top: -16.13%; width: 100%; height: 116.13%; display: block; border: 0;"></iframe>
+          </div>
+        </sc-if>
+
+
+        <sc-if value="{{ detail.galleryLate }}" hint-placeholder-val="{{ false }}">
+          <div data-gallery-grid="1" style="{{ detail.galleryGridStyle }}">
+            <sc-for list="{{ detail.gallery }}" as="g" hint-placeholder-count="12">
+              <div onClick="{{ g.onClick }}" onMouseEnter="{{ g.onMouseEnter }}" onMouseLeave="{{ g.onMouseLeave }}" style="{{ g.tileStyle }}">
+                <sc-if value="{{ g.notAmoeba }}" hint-placeholder-val="{{ true }}">
+                  <img src="{{ g.src }}" data-long="{{ g.scroll }}" loading="lazy" decoding="async" style="{{ g.imgStyle }}" />
+                </sc-if>
+                <sc-if value="{{ g.amoeba }}" hint-placeholder-val="{{ false }}">{{ g.amoeba }}</sc-if>
+                <div style="{{ g.strokeStyle }}"></div>
+                <div style="{{ g.captionStyle }}">
+                  <span style="{{ g.captionTextStyle }}">{{ g.caption }}</span>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </sc-if>
       </main>
 
       <footer style="width: 100%; padding: 24px 40px; display: flex; align-items: flex-end; justify-content: space-between; border-top: 1px solid rgba(0,0,0,0.1); font-size: 13px; min-height: clamp(64px, 12vh, 160px); box-sizing: border-box;">
@@ -126,13 +248,171 @@
     </div>
   </sc-if>
 
+  <sc-if value="{{ lbOpen }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ lbClose }}" role="dialog" aria-modal="true" style="position: fixed; inset: 0; z-index: 1000; background: rgba(9,9,11,0.9); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 56px 72px; box-sizing: border-box; cursor: zoom-out;">
+      <img src="{{ lbSrc }}" alt="" onClick="{{ lbStop }}" style="max-width: 100%; max-height: calc(100vh - 160px); object-fit: contain; display: block; border-radius: 6px; background: #ffffff; cursor: default;" />
+      <div onClick="{{ lbStop }}" style="display: flex; align-items: baseline; gap: 16px; max-width: 900px; color: #f4f4f5; font-family: 'Barlow', sans-serif; cursor: default;">
+        <span style="font-size: 13px; color: #a1a1aa; flex-shrink: 0;">{{ lbCount }}</span>
+        <sc-if value="{{ lbHasCaption }}" hint-placeholder-val="{{ false }}">
+          <span style="font-size: 14px; line-height: 1.5; text-wrap: pretty;">{{ lbCaption }}</span>
+        </sc-if>
+      </div>
+      <button onClick="{{ lbClose }}" aria-label="Close" style="position: absolute; top: 16px; right: 16px; width: 44px; height: 44px; border: 0; border-radius: 22px; background: rgba(244,244,245,0.12); color: #f4f4f5; font-size: 22px; line-height: 1; cursor: pointer;" style-hover="{&quot;background&quot;: &quot;rgba(244,244,245,0.24)&quot;}">×</button>
+      <button onClick="{{ lbPrev }}" aria-label="Previous image" style="position: absolute; left: 16px; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border: 0; border-radius: 22px; background: rgba(244,244,245,0.12); color: #f4f4f5; font-size: 20px; line-height: 1; cursor: pointer;" style-hover="{&quot;background&quot;: &quot;rgba(244,244,245,0.24)&quot;}">←</button>
+      <button onClick="{{ lbNext }}" aria-label="Next image" style="position: absolute; right: 16px; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border: 0; border-radius: 22px; background: rgba(244,244,245,0.12); color: #f4f4f5; font-size: 20px; line-height: 1; cursor: pointer;" style-hover="{&quot;background&quot;: &quot;rgba(244,244,245,0.24)&quot;}">→</button>
+    </div>
+  </sc-if>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 1280, &quot;height&quot;: 900}, &quot;hoverReveal&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Behavior&quot;}, &quot;showCategoryTags&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Behavior&quot;}, &quot;linkedinNewTab&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Behavior&quot;}}">
 const BLANK_SRC = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ycllwAAACwAAAAAAQABAAACAgQBQAAAOw==';
 
+// Dense first-fit packer; then grows tiles downward/rightward to fill any holes so the grid ends flush.
+function packGallery(spans, cols) {
+  const grid = [];
+  const cell = (r, c) => (grid[r] || [])[c];
+  const set = (r, c, v) => { (grid[r] = grid[r] || [])[c] = v; };
+  const fits = (r, c, cs, rs) => { if (c + cs > cols) return false; for (let y = r; y < r + rs; y++) for (let x = c; x < c + cs; x++) if (cell(y, x) !== undefined) return false; return true; };
+  const items = spans.map(([cs, rs], i) => {
+    for (let r = 0; ; r++) for (let c = 0; c < cols; c++) if (fits(r, c, cs, rs)) {
+      for (let y = r; y < r + rs; y++) for (let x = c; x < c + cs; x++) set(y, x, i);
+      return { r, c, cs, rs };
+    }
+  });
+  const rows = grid.length;
+  for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) {
+    if (cell(r, c) !== undefined) continue;
+    const up = r > 0 ? cell(r - 1, c) : undefined;
+    const it = up !== undefined ? items[up] : null;
+    if (it && it.r + it.rs === r) {
+      let ok = true; for (let x = it.c; x < it.c + it.cs; x++) if (cell(r, x) !== undefined) ok = false;
+      if (ok) { for (let x = it.c; x < it.c + it.cs; x++) set(r, x, up); it.rs++; continue; }
+    }
+    const left = c > 0 ? cell(r, c - 1) : undefined;
+    const lt = left !== undefined ? items[left] : null;
+    if (lt && lt.c + lt.cs === c) {
+      let ok = true; for (let y = lt.r; y < lt.r + lt.rs; y++) if (cell(y, c) !== undefined) ok = false;
+      if (ok) { for (let y = lt.r; y < lt.r + lt.rs; y++) set(y, c, left); lt.cs++; }
+    }
+  }
+  return items;
+}
+
+
+const AMOEBA = {"B":[{"c":"#0f8f86","o":0.3,"cx":488,"cy":492,"d":"M488.0,391.2C516.3,391.0 538.6,398.6 562.0,418.0C585.5,437.3 609.2,462.6 610.2,492.0C611.1,521.4 590.5,546.7 567.1,571.1C543.6,595.4 522.3,614.9 488.0,618.8C453.7,622.7 412.5,615.7 388.7,591.3C364.8,567.0 359.0,525.1 364.1,492.0C369.2,458.9 391.3,438.5 415.1,419.1C439.0,399.7 459.7,391.4 488.0,391.2Z","g":"amW0 13.7s cubic-bezier(0.45,0,0.55,1) infinite","p":"amM0 11.9s cubic-bezier(0.45,0,0.55,1) infinite","g0":"#12b5a4","g1":"#0a4f8f","pl":"amP0 3.4s cubic-bezier(0.37,0,0.63,1) infinite"},{"c":"#1f2f9a","o":0.3,"cx":522,"cy":492,"d":"M522.0,353.8C556.5,353.5 588.4,375.0 612.4,401.6C636.4,428.2 647.7,458.0 646.9,492.0C646.2,526.0 632.6,556.6 608.6,578.6C584.5,600.5 554.6,607.0 522.0,606.2C489.4,605.5 465.0,596.8 439.1,574.9C413.3,552.9 389.0,525.1 387.8,492.0C386.6,458.9 407.0,429.4 432.8,402.8C458.6,376.2 487.5,354.0 522.0,353.8Z","g":"amW1 11.1s cubic-bezier(0.45,0,0.55,1) infinite","p":"amM1 10.1s cubic-bezier(0.45,0,0.55,1) infinite","g0":"#3a57d6","g1":"#141c6b","pl":"amP1 2.9s cubic-bezier(0.37,0,0.63,1) infinite"},{"c":"#1b4fb4","o":0.3,"cx":505,"cy":510,"d":"M505.0,371.6C543.0,368.7 586.2,377.2 611.1,403.9C636.0,430.5 638.4,473.0 634.6,510.0C630.7,547.0 616.0,567.0 591.1,596.1C566.2,625.3 539.4,660.4 505.0,661.6C470.6,662.8 440.7,631.7 412.5,602.5C384.3,573.3 358.0,545.4 358.2,510.0C358.4,474.6 385.3,445.1 413.5,418.5C441.8,391.9 467.0,374.4 505.0,371.6Z","g":"amW2 16.3s cubic-bezier(0.45,0,0.55,1) infinite","p":"amM2 13.7s cubic-bezier(0.45,0,0.55,1) infinite","g0":"#2f86e8","g1":"#16307f","pl":"amP2 3.8s cubic-bezier(0.37,0,0.63,1) infinite"},{"c":"#0a86c2","o":0.3,"cx":510,"cy":500,"d":"M510.0,366.9C541.8,366.4 574.8,390.5 593.8,416.2C612.8,441.8 606.7,465.6 608.8,500.0C610.9,534.4 623.9,569.2 604.9,594.9C585.9,620.6 541.1,639.1 510.0,633.7C478.9,628.3 461.9,592.6 443.1,566.9C424.3,541.2 414.8,528.5 412.1,500.0C409.3,471.5 409.8,444.3 428.7,418.7C447.5,393.1 478.2,367.3 510.0,366.9Z","g":"amW3 12.3s cubic-bezier(0.45,0,0.55,1) infinite","p":"amM3 8.7s cubic-bezier(0.45,0,0.55,1) infinite","g0":"#22c3f0","g1":"#0a5fa8","pl":"amP3 3.1s cubic-bezier(0.37,0,0.63,1) infinite"}],"x0":387.7,"font":"SamsungOne, 'Samsung One', 'SamsungOneUI', 'One UI Sans', 'Samsung Sans', 'Helvetica Neue', Arial, sans-serif","D":8};
+let _amoebaEl = null;
+function amoebaEl() {
+  if (_amoebaEl) return _amoebaEl;
+  const h = React.createElement, A = AMOEBA;
+  _amoebaEl = h('svg', { 'data-amoeba': '1', viewBox: '0 0 1000 1000', preserveAspectRatio: 'xMidYMid slice', style: { position: 'absolute', inset: 0, width: '100%', height: '100%', display: 'block' } },
+    h('rect', { width: 1000, height: 1000, fill: '#000' }),
+    h('defs', null, ...A.B.map((b, i) => h('linearGradient', { key: 'lg' + i, id: 'amG' + i, x1: '0', y1: '0', x2: '1', y2: '1' }, h('stop', { offset: '0%', stopColor: b.g0 }), h('stop', { offset: '100%', stopColor: b.g1 })))),
+    h('circle', { cx: 500, cy: 500, r: 222, fill: 'none', stroke: '#58595b', strokeWidth: 1, vectorEffect: 'non-scaling-stroke', style: { transformOrigin: '500px 500px', animation: 'amR1 5.2s cubic-bezier(0.45,0,0.55,1) infinite' } }),
+    h('circle', { cx: 500, cy: 500, r: 208, fill: 'none', stroke: '#1eb2e8', strokeWidth: 1, vectorEffect: 'non-scaling-stroke', style: { transformOrigin: '500px 500px', animation: 'amR2 4.1s cubic-bezier(0.45,0,0.55,1) infinite' } }),
+    ...A.B.map((b, i) => h('g', { key: 'b' + i, style: { transformOrigin: b.cx + 'px ' + b.cy + 'px', animation: b.g } },
+      h('g', { style: { transformOrigin: b.cx + 'px ' + b.cy + 'px', animation: b.pl } }, h('path', { d: b.d, fill: 'url(#amG' + i + ')', fillOpacity: b.o, style: { animation: b.p } })))),
+    h('text', { x: A.x0, y: 530, fill: '#fff', style: { fontFamily: A.font, fontWeight: 700, fontSize: '92px' } },
+      ...'Hello'.split('').map((ch, i) => h('tspan', { key: 't' + i, style: { fillOpacity: 0, animation: 'amT' + i + ' ' + A.D + 's step-end infinite' } }, ch))),
+    h('rect', { className: 'am-cur', x: A.x0 + 6, y: 448, width: 5, height: 94, fill: '#fff', style: { animation: 'amCx ' + A.D + 's step-end infinite, amCo ' + A.D + 's step-end infinite' } })
+  );
+  return _amoebaEl;
+}
+
+let _synthEl = null;
+function synthaceEl() {
+  if (_synthEl) return _synthEl;
+  const h = React.createElement, D = '5.5s', an = (n, tf) => n + ' ' + D + ' ' + (tf || 'linear') + ' infinite';
+  const node = (cx, cy, o, i, k) => h('g', { style: { transformOrigin: cx + 'px ' + cy + 'px', animation: an(k) } },
+    h('circle', { cx, cy, r: 50, fill: o }), h('circle', { cx, cy, r: 34, fill: i }));
+  _synthEl = h('svg', { 'data-amoeba': '1', viewBox: '0 0 1600 1200', preserveAspectRatio: 'xMidYMid slice', style: { position: 'absolute', inset: 0, width: '100%', height: '100%', display: 'block' } },
+    h('defs', null, h('clipPath', { id: 'syRow' }, h('rect', { x: 0, y: 780, width: 1600, height: 420 }))),
+    h('rect', { width: 1600, height: 1200, fill: '#0d0d0d' }),
+    h('image', { href: 'assets/snapshots/15.jpg', x: 0, y: 0, width: 1600, height: 1200, clipPath: 'url(#syRow)' }),
+    h('path', { d: 'M662,592 L938,592', stroke: '#9cc2ff', strokeWidth: 8, fill: 'none', strokeDasharray: 276, style: { animation: an('syLineA') } }),
+    h('path', { d: 'M922,550 C885,450 800,360 712,332', stroke: '#9cc2ff', strokeWidth: 8, fill: 'none', strokeLinecap: 'round', strokeDasharray: 313, style: { animation: an('syLineB') } }),
+    node(662, 592, '#a0468f', '#ff9be0', 'syPopA'),
+    h('g', { style: { transformOrigin: '938px 592px', animation: an('syPopB') } },
+      h('path', { d: 'M943,592 L943,420', stroke: '#9cc2ff', strokeWidth: 8 }),
+      h('rect', { x: 922, y: 378, width: 42, height: 42, fill: '#3d8eff', transform: 'rotate(45 943 399)' }),
+      h('circle', { cx: 938, cy: 592, r: 50, fill: '#b63f0a' }), h('circle', { cx: 938, cy: 592, r: 34, fill: '#f55a05' })),
+    h('g', { style: { transformOrigin: '669px 320px', animation: an('syPopC') } },
+      h('path', { d: 'M669,316 L850,316', stroke: '#9cc2ff', strokeWidth: 8 }),
+      h('rect', { x: 848, y: 293, width: 42, height: 42, fill: '#3cb83c', transform: 'rotate(45 869 314)' }),
+      h('circle', { cx: 669, cy: 320, r: 50, fill: '#bfe3ff' }), h('circle', { cx: 669, cy: 320, r: 34, fill: '#3d8eff' })),
+    h('g', { style: { animation: an('syNib') } },
+      h('path', { d: 'M0,0 L-5,12 L18,98 L55,126 L88,108 L83,68 Z', fill: '#d9d9d9', stroke: '#141414', strokeWidth: 6, strokeLinejoin: 'round' }),
+      h('path', { d: 'M0,0 L70,118', stroke: '#141414', strokeWidth: 5 }),
+      h('path', { d: 'M40,62 L88,108 L55,126 Z', fill: '#f2f2f2' }),
+      h('circle', { cx: 38, cy: 64, r: 11, fill: '#141414' }))
+  );
+  return _synthEl;
+}
+
+const SPLIT_TILE = { position: 'relative', borderRadius: '10px', background: '#f2f2f0', boxShadow: '0 0 0 8px #ffffff', lineHeight: 0 };
+function splitBlocks(gal, W, open) { return rebuild(gal, W !== 0 && W < 640, open); }
+function rebuild(gal, oneCol, open) {
+  const tile = (g) => ({ src: g.src, caption: g.caption, onClick: open ? (e) => open(g.src, e) : undefined });
+  if (oneCol) return gal.map((g) => ({ isWide: true, isPair: false, item: tile(g) }));
+  const blocks = [];
+  let pending = [];
+  const flushPairs = () => {
+    const cols = [[], []], hts = [0, 0];
+    pending.forEach((g) => { const k = hts[0] <= hts[1] ? 0 : 1; cols[k].push(tile(g)); hts[k] += (g.fr || 0.6); });
+    blocks.push({ isWide: false, isPair: true, left: cols[0], right: cols[1] });
+    pending = [];
+  };
+  gal.forEach((g) => {
+    if ((g.fr || 0.6) <= 0.46) { if (pending.length >= 2) flushPairs(); blocks.push({ isWide: true, isPair: false, item: tile(g) }); }
+    else pending.push(g);
+  });
+  if (pending.length) flushPairs();
+  return blocks;
+}
+
 class Component extends DCLogic {
-  state = { view: 'home', hoveredKey: null };
+  state = { lb: null, view: 'home', hoveredKey: null, hoveredGallery: null, galleryW: 0 };
+
+  attachGalleryObserver = () => {
+    const el = document.querySelector('[data-gallery-grid]');
+    if (el === this._roEl) return;
+    if (this._ro) { this._ro.disconnect(); this._ro = null; }
+    this._roEl = el;
+    if (el && this._onResize) this._onResize();
+    if (el && window.ResizeObserver) {
+      this._ro = new ResizeObserver((entries) => {
+        const w = Math.round(entries[0].contentRect.width);
+        if (w !== this.state.galleryW) this.setState({ galleryW: w });
+      });
+      this._ro.observe(el);
+    }
+  };
+
+  lbList = () => {
+    const cur = (this.projectDefs || []).find((p) => p.key === this.state.view);
+    if (!cur) return [];
+    const out = [];
+    if (cur.thumbSrc) out.push({ src: cur.thumbSrc, caption: cur.heroCaption || '' });
+    if (cur.preVideoImg) out.push({ src: cur.preVideoImg, caption: cur.preVideoCaption || '' });
+    (cur.gallery || []).forEach((g) => { if (!g.amoeba && !g.anim) out.push({ src: g.src, caption: g.caption || '' }); });
+    return out;
+  };
+  openLb = (src, e) => { if (e && e.stopPropagation) e.stopPropagation(); const i = this.lbList().findIndex((x) => x.src === src); if (i >= 0) { this._lbAt = Date.now(); this.setState({ lb: i }); } };
+  lbGuard = () => Date.now() - (this._lbAt || 0) < 400;
+  stepLb = (d) => this.setState((s) => { const n = this.lbList().length; return s.lb == null || !n ? {} : { lb: (s.lb + d + n) % n }; });
+  closeLb = () => this.setState({ lb: null });
+  componentDidMount() {
+    this._onKey = (e) => { if (this.state.lb == null) return; if (e.key === 'Escape') this.closeLb(); else if (e.key === 'ArrowRight') this.stepLb(1); else if (e.key === 'ArrowLeft') this.stepLb(-1); };
+    window.addEventListener('keydown', this._onKey);
+    this._onResize = () => { const el = document.querySelector('[data-gallery-grid]'); if (el) { const w = Math.round(el.getBoundingClientRect().width); if (w !== this.state.galleryW) this.setState({ galleryW: w }); } };
+    window.addEventListener('resize', this._onResize);
+    this.attachGalleryObserver();
+    this._poll = setInterval(() => { this.attachGalleryObserver(); if (this._roEl && !this.state.galleryW) this._onResize(); }, 250);
+  }
+  componentDidUpdate() {
+    this.attachGalleryObserver();
+    document.querySelectorAll('video[data-autoplay]').forEach((v) => { v.muted = true; if (v.paused) v.play().catch(() => {}); });
+  }
+  componentWillUnmount() { window.removeEventListener('keydown', this._onKey); if (this._ro) this._ro.disconnect(); window.removeEventListener('resize', this._onResize); clearInterval(this._poll); }
 
   projectDefs = [
     {
@@ -147,6 +427,28 @@ class Component extends DCLogic {
       key: 'synthace', tag: 'Synthace', title: 'Software',
       desc: 'Automating life science experimentation',
       thumbSrc: 'assets/synthace-hero.png', thumbFit: 'contain',
+      galleryLayout: 'split', galleryEarly: true,
+      gallery: [
+        { size: 'f', fr: 0.46, src: 'assets/synthace/g01.jpg', caption: "Well range redlining — heavier weight and brackets to separate ranges from liquid names." },
+        { size: 'f', fr: 0.56, src: 'assets/synthace/g02.jpg', caption: "Device library — annotated spec for card styles and spacing." },
+        { size: 'f', fr: 1.78, src: 'assets/synthace/g03.jpg', caption: "Antha Hub executions — task status and notification states." },
+        { size: 'f', fr: 0.55, src: 'assets/synthace/g04.jpg', caption: "Building the colour scales in ColorBox." },
+        { size: 'f', fr: 0.25, src: 'assets/synthace/g05.jpg', caption: "Platform colour palette — brand, semantic and neutral scales." },
+        { size: 'f', fr: 0.44, src: 'assets/synthace/g06.jpg', caption: "Well colours and plate interaction states, annotated." },
+        { size: 'f', fr: 0.66, src: 'assets/synthace/g07.jpg', caption: "Builder — simulations panel with error details and the extended Simulate button." },
+        { size: 'f', fr: 0.27, src: 'assets/synthace/g08.jpg', caption: "Empty experiments page — three illustration colourways." },
+        { size: 'f', fr: 1.18, src: 'assets/synthace/g09.jpg', caption: "Experiment page — adding and reordering modules." },
+        { size: 'f', fr: 0.62, src: 'assets/synthace/g10.jpg', caption: "Instance parameter panel — styling groups, redlined against the original." },
+        { size: 'f', fr: 0.66, src: 'assets/synthace/g12.jpg', caption: "Builder canvas — new cursor options in the controls bar." },
+        { size: 'f', fr: 0.28, src: 'assets/synthace/g13.jpg', caption: "Flows for configuring accessible devices and adding plates from simulations." },
+        { size: 'f', fr: 0.58, src: 'assets/synthace/g14.jpg', caption: "Renaming a workflow — inline edit versus details panel." },
+        { size: 'f', fr: 0.18, src: 'assets/synthace/g15.jpg', caption: "Landing page — nine treatments for highlighting a workflow." },
+        { size: 'f', fr: 1.65, src: 'assets/synthace/g16.jpg', caption: "Deck options v2 — selecting tip box locations, including narrow troughs." },
+        { size: 'f', fr: 1.55, src: 'assets/synthace/g17.jpg', caption: "Plate cards with incubation and timer states." },
+        { size: 'f', fr: 0.38, src: 'assets/synthace/g18.jpg', caption: "Plate content editor — zoom to view well numbers on larger plates." }
+      ],
+      preVideoImg: 'assets/synthace/day1-platform.jpg', preVideoCaption: 'Day one — what the platform looked like when I joined.',
+      heroVideo: 'https://www.youtube.com/embed/r5eP5d-JLhI?autoplay=1&mute=1&loop=1&playlist=r5eP5d-JLhI&controls=1&rel=0&playsinline=1&modestbranding=1&iv_load_policy=3',
       placeholderLabel: 'SYNTHACE',
       detailCategory: 'Synthace', detailTitle: 'Software.',
       subheading: 'Automating life sciences for a better future',
@@ -159,7 +461,22 @@ class Component extends DCLogic {
       placeholderLabel: 'LIGHTCYCLE',
       detailCategory: 'Dyson', detailTitle: 'Lightcycle.',
       subheading: 'A connected product that tracks natural daylight',
-      body: "Product and app design for Dyson Lightcycle, a connected lamp that synchronises colour temperature and brightness to natural daylight patterns based on location and time of day."
+      galleryLayout: 'bento', galleryRowRatio: 0.5625,
+      body: "Product and app design for Dyson Lightcycle, a connected lamp that synchronises colour temperature and brightness to natural daylight patterns based on location and time of day.",
+      gallery: [
+        { size: 'l', src: 'assets/lightcycle/01.jpg', caption: '“Modern life has robbed us of natural light. We spend 90% of our lives indoors.” — Jake Dyson, Chief Lighting Engineer' },
+        { size: 's', src: 'assets/lightcycle/02.jpg', caption: '72% of consumers believe replicating natural light can reduce eyestrain.' },
+        { size: 's', src: 'assets/lightcycle/03.jpg', caption: '90% of East Asian school children are nearsighted.' },
+        { size: 's', src: 'assets/lightcycle/04.jpg', caption: '2 billion people are expected to have presbyopia by 2020.' },
+        { size: 's', src: 'assets/lightcycle/05.jpg', caption: 'Workshop whiteboard — mapping content intent, status and simulation.' },
+        { size: 's', src: 'assets/lightcycle/06.jpg', caption: 'Showing daylight without framing it as a negative when you fall off the curve.' },
+        { size: 's', src: 'assets/lightcycle/07.jpg', caption: 'Concept 03 — full spectrum versus a single gradient at that moment.' },
+        { size: 'l', src: 'assets/lightcycle/10.jpg', caption: 'Final app — synchronised home screen and manual light controls.' },
+        { size: 's', src: 'assets/lightcycle/08.jpg', caption: 'Concept 01 — night mode and position on the daylight curve.' },
+        { size: 's', src: 'assets/lightcycle/09.jpg', caption: 'Three concepts compared: spot, curve and dial, with pros and cons.' },
+        { size: 'l', src: 'assets/lightcycle/11.jpg', caption: 'Annotated redlining and mode iconography in dark and light.' },
+        { size: 'l', src: 'assets/lightcycle/12.jpg', caption: 'Four states: synchronised, off, manual and not connected.' }
+      ]
     },
     {
       key: 'dyson-concept', tag: 'Dyson', title: 'Automotive',
@@ -167,7 +484,22 @@ class Component extends DCLogic {
       thumbSrc: 'assets/dyson-automotive-hero.png', thumbFit: 'contain',
       detailCategory: 'Dyson', detailTitle: 'Automotive.',
       subheading: 'HMI designs',
-      body: "An internal concept exploration project looking at how Dyson's design language could extend into future mobility and automotive spaces, exploring form, materiality, and brand expression."
+      body: "An internal concept exploration project looking at how Dyson's design language could extend into future mobility and automotive spaces, exploring form, materiality, and brand expression.",
+      gallery: [
+        { src: 'assets/automotive/01.jpg', caption: 'The Dyson electric vehicle — the platform the HMI concepts were designed around.' },
+        { src: 'assets/automotive/02.jpg', caption: 'Close Encounters — projected layers place charge, speed and range in the driver’s field of view.' },
+        { src: 'assets/automotive/03.jpg', caption: 'Data Rain — journey completed behind, range ahead, with speed and charge warnings in depth.' },
+        { src: 'assets/automotive/04.jpg', caption: 'Hyperspace Clusters — speed, range and charge orbiting a single focal point.' },
+        { src: 'assets/automotive/05.jpg', caption: 'Gestalt principles applied to instrument layout: proximity, continuity, closure, symmetry.' },
+        { src: 'assets/automotive/06.jpg', caption: 'Dot matrix studies — speed, range and battery as spatial quantity rather than dials.' },
+        { src: 'assets/automotive/07.jpg', caption: 'Fluid, lozenge and liquid halo concepts, and golden-ratio construction for adaptive components.' },
+        { src: 'assets/automotive/08.jpg', caption: 'Data tiles and projected layering — warning icons, comms and fault detection on common ground.' },
+        { src: 'assets/automotive/09.jpg', caption: 'Range as distance: dot windows, spatial quantity and colour-shifted range states.' },
+        { src: 'assets/automotive/10.jpg', caption: 'Concentric and projected speedometer studies exploring depth and perspective.' },
+        { src: 'assets/automotive/11.jpg', caption: 'Timeline and now — historical speed against distance still to go.' },
+        { src: 'assets/automotive/12.jpg', caption: 'Swiss-watch typographic studies for speed, range and charge hierarchy.' },
+        { src: 'assets/automotive/13.jpg', caption: 'Honeycomb and cluster arrangements — outline versus fill for contrast and colour.' }
+      ]
     },
     {
       key: 'automata-brand', tag: 'Automata', title: 'Brand',
@@ -181,15 +513,54 @@ class Component extends DCLogic {
     {
       key: 'other-connected', tag: 'Other', title: 'Portfolio Snapshots',
       desc: 'Other work and experiments',
+      thumbSrc: 'assets/snapshots/01.jpg', thumbFit: 'cover', thumbTone: 'contrast(0.82) brightness(1.1)', homeTone: 'contrast(0.7) brightness(1.25)',
+      heroCaption: "Level Studios — agency brand identity for Apple’s production agency.",
       placeholderLabel: 'OTHER',
       detailCategory: 'Other', detailTitle: 'Portfolio Snapshots.',
       subheading: 'Other work and experiments',
-      body: 'An exploratory concept project imagining a unified app experience for managing connected home appliances, with a focus on simple onboarding, device discovery, and at-a-glance status.'
+      body: 'An exploratory concept project imagining a unified app experience for managing connected home appliances, with a focus on simple onboarding, device discovery, and at-a-glance status.',
+      galleryLayout: 'bento', galleryRowRatio: 0.75,
+      gallery: [
+        { size: 'w', src: 'assets/snapshots/02.jpg', caption: "Blurb — out-of-home concept from the pitch: “Great stories. Make great books.”" },
+        { size: 't', src: 'assets/snapshots/03.jpg', caption: "G-0D1 — a club and Opta data-driven football management companion." },
+        { size: 's', src: 'assets/snapshots/04.jpg', caption: "Big Blue Unlimited — layered mobile screens for the Turks and Caicos eco-tour outfit." },
+        { size: 'w', src: 'assets/snapshots/05.jpg', caption: "Big Blue Unlimited — kiteboarding brochure spread." },
+        { size: 't', scroll: 2.08, src: 'assets/snapshots/long/06.jpg', caption: "Big Blue Unlimited — kayaking flyer front." },
+        { size: 'w', src: 'assets/snapshots/07.jpg', caption: "Ford EMEA — Fiesta and Ka model pages, isometric overview." },
+        { size: 's', src: 'assets/snapshots/08.jpg', caption: "Ford EMEA — user-tested Kuga model page visual." },
+        { size: 'l', src: 'assets/snapshots/09.jpg', caption: "Aviva PLC — investor relations mobile concepts from the design audit." },
+        { size: 'w', src: 'assets/snapshots/10.jpg', caption: "The Irvine Company — apartments mobile app: neighbourhood, search and resident screens." },
+        { size: 's', src: 'assets/snapshots/11.jpg', amoeba: true, caption: "Samsung Connected Home." },
+        { size: 't', src: 'assets/snapshots/12.jpg', caption: "Level Studios — About page: “Hi.”, approach, worldview and craft." },
+        { size: 'l', src: 'assets/snapshots/13.jpg', caption: "Level Studios — site design system in isometric: red, gradient and chartreuse themes." },
+        { size: 'w', src: 'assets/snapshots/14.jpg', caption: "Level brand book — client presentation template." },
+        { size: 's', anim: 'synthace', src: 'assets/snapshots/15.jpg', caption: "Synthace — branded icon set." },
+        { size: 't', scroll: 2.96, src: 'assets/snapshots/long/16.jpg', caption: "Intranet — event calendar with expanded event detail." },
+        { size: 'w', src: 'assets/snapshots/17.jpg', caption: "Big Blue Unlimited — stand up paddle boarding flyer." },
+        { size: 's', src: 'assets/snapshots/18.jpg', caption: "Big Blue Unlimited — logo construction." },
+        { size: 't', scroll: 10.37, src: 'assets/snapshots/long/19.jpg', caption: "Big Blue Unlimited — full mobile scroll, from Above & Beyond to Hello." },
+        { size: 'w', src: 'assets/snapshots/20.jpg', caption: "Level Studios — “Connected.” services, client list and team modules." },
+        { size: 's', src: 'assets/snapshots/21.jpg', caption: "Level Studios — “We are better together.” homepage." },
+        { size: 'w', src: 'assets/snapshots/22.jpg', caption: "Ford EMEA — Fiesta model page, dark theme." },
+        { size: 't', scroll: 7.44, src: 'assets/snapshots/long/23.jpg', caption: "Zepp — long-page desktop and mobile layouts." },
+        { size: 'w', src: 'assets/snapshots/24.jpg', caption: "Level brand book — cover options." },
+        { size: 'l', src: 'assets/snapshots/25.jpg', caption: "Big Blue Unlimited — Ride, Hello and Up for Air screens." },
+        { size: 'l', src: 'assets/snapshots/26.jpg', caption: "Level Studios — brand guidelines, colour and type in isometric." },
+        { size: 't', scroll: 2.35, src: 'assets/snapshots/long/27.jpg', caption: "Level Studios — “brave new world” homepage exploration." },
+        { size: 'w', src: 'assets/snapshots/28.jpg', caption: "Intranet — calendar, blog and team directory across desktop and mobile." },
+        { size: 't', scroll: 5.95, src: 'assets/snapshots/long/29.jpg', caption: "Blurb — creative strategy: the values in stories." },
+        { size: 'w', src: 'assets/snapshots/30.jpg', caption: "Level Studios — v12 layout, caption and palette rules." },
+        { size: 's', src: 'assets/snapshots/31.jpg', caption: "Big Blue Unlimited — mobile screens on light." },
+        { size: 't', scroll: 3.38, src: 'assets/snapshots/long/32.jpg', caption: "Level Studios — homepage with The Irvine Company case study." },
+        { size: 'w', src: 'assets/snapshots/33.jpg', caption: "Big Blue Unlimited — kiteboarding brochure, beach spread." },
+        { size: 'w', src: 'assets/snapshots/34.jpg', caption: "Level Studios — early brand directions: Smart. Meet Beautiful." },
+        { size: 's', src: 'assets/snapshots/35.gif', caption: "Media player HMI — in-car music concept, animated." }
+      ]
     }
   ];
 
   navigateTo = (key) => {
-    this.setState({ view: key });
+    this.setState({ view: key, lb: null });
     window.scrollTo(0, 0);
   };
 
@@ -224,7 +595,7 @@ class Component extends DCLogic {
           objectFit: p.thumbFit || 'cover',
           objectPosition: 'center center',
           background: '#ffffff',
-          filter: (!hoverReveal || this.state.hoveredKey === p.key) ? 'grayscale(0%)' : 'grayscale(100%)',
+          filter: ((!hoverReveal || this.state.hoveredKey === p.key) ? 'grayscale(0%)' : 'grayscale(100%)') + ((p.homeTone || p.thumbTone) ? ' ' + (p.homeTone || p.thumbTone) : ''),
           transition: 'filter 0.35s ease'
         } : null,
         onMouseEnter: () => this.setHovered(p.key),
@@ -260,13 +631,86 @@ class Component extends DCLogic {
       const next = projects[(idx + 1) % projects.length];
       prevKey = prev.key;
       nextKey = next.key;
+      const gal = cur.gallery || [];
+      const bento = cur.galleryLayout === 'bento';
+      const allFull = bento && gal.length > 0 && gal.every((g) => g.size === 'f');
+      const split = cur.galleryLayout === 'split';
+      const W = this.state.galleryW;
+      const cols = bento ? (W === 0 ? 4 : W < 640 ? 1 : W < 960 ? 2 : 4) : (W !== 0 && W < 642 ? 1 : 2);
+      const gapPx = 18;
+      const colW = W ? (W - gapPx * (cols - 1)) / cols : 0;
+      const rowH = colW ? Math.round(colW * (bento ? (cur.galleryRowRatio || 0.75) : 0.5625)) : 180;
+      const spanOf = (size, fr) => {
+        if (!bento) return [1, 1];
+        if (size === 'f') return [cols, Math.max(1, Math.round(((fr || 0.5625) * (W || 1000) + gapPx) / (rowH + gapPx)))];
+        if (size === 'l') return cols === 1 ? [1, 1] : [2, 2];
+        if (size === 'w') return [Math.min(2, cols), 1];
+        if (size === 't') return [1, 2];
+        return [1, 1];
+      };
       detail = {
+        hasGallery: gal.length > 0,
+        galleryEarly: gal.length > 0 && !!cur.galleryEarly && !split,
+        galleryLate: gal.length > 0 && !cur.galleryEarly && !split,
+        splitOn: split,
+        splitBlocks: split ? splitBlocks((cur.preVideoImg ? [{ src: cur.preVideoImg, caption: cur.preVideoCaption || '', fr: 0.28 }] : []).concat(gal), W, this.openLb) : [],
+        galleryGridStyle: allFull ? { display: 'flex', flexDirection: 'column', gap: gapPx + 'px', margin: cur.galleryEarly ? '8px 0 64px 0' : '8px 0' } : {
+          display: 'grid',
+          gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))`,
+          gridAutoRows: rowH + 'px',
+          gridAutoFlow: 'row dense',
+          gap: gapPx + 'px',
+          margin: cur.galleryEarly ? '8px 0 64px 0' : '8px 0'
+        },
+        gallery: packGallery(gal.map((g) => spanOf(g.size, g.fr)), cols).map((p, i) => {
+          const g = gal[i];
+          const cs = p.cs, rs = p.rs;
+          const small = bento && cs === 1 && rs === 1;
+          return {
+          caption: g.caption,
+          src: g.src || BLANK_SRC,
+          amoeba: g.amoeba ? amoebaEl() : g.anim === 'synthace' ? synthaceEl() : null,
+          notAmoeba: !(g.amoeba || g.anim),
+          onClick: (g.amoeba || g.anim) ? undefined : (e) => this.openLb(g.src, e),
+          strokeStyle: { display: 'none' },
+          tileStyle: {
+            position: 'relative', borderRadius: '10px', overflow: 'hidden', background: '#f2f2f0', cursor: (g.amoeba || g.anim) ? 'default' : 'zoom-in',
+            ...(allFull ? { width: '100%', aspectRatio: `1 / ${g.fr || 0.5625}` } : { gridColumn: `${p.c + 1} / span ${cs}`, gridRow: `${p.r + 1} / span ${rs}` }),
+            boxShadow: '0 0 0 8px #ffffff'
+          },
+          imgStyle: {
+            position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover',
+            objectPosition: (g.size === 't' || g.scroll) ? 'center top' : 'center center', display: 'block',
+            ...(g.scroll ? { animation: `longScroll ${Math.max(12, Math.round((g.scroll - 1.6) * 9))}s linear ${(i % 5) * -3}s infinite alternate`, willChange: 'object-position' } : {})
+          },
+          captionTextStyle: { fontSize: small ? '12px' : '13px', lineHeight: 1.45, color: '#18181b', textWrap: 'pretty' },
+          onMouseEnter: undefined,
+          onMouseLeave: undefined,
+          captionStyle: {
+            position: 'absolute',
+            left: '8px',
+            bottom: '8px',
+            maxWidth: 'calc(100% - 16px)',
+            boxSizing: 'border-box',
+            padding: '4px 8px',
+            display: 'flex',
+            textAlign: 'left',
+            background: '#f4f4f5',
+            borderRadius: '4px',
+            pointerEvents: 'none'
+          }
+        }; }),
         category: cur.detailCategory,
         title: cur.detailTitle,
         subheading: cur.subheading,
         body: cur.body,
         thumbSrc: cur.thumbSrc,
         thumbSrcSafe: cur.thumbSrcSafe,
+        heroCaption: cur.heroCaption,
+        onHeroClick: (e) => this.openLb(cur.thumbSrc, e),
+        heroVideo: cur.heroVideo || null,
+        preVideoImg: split ? null : (cur.preVideoImg || null),
+        preVideoCaption: cur.preVideoCaption || '',
         thumbFit: cur.thumbFit,
         thumbBgSize: cur.thumbBgSize,
         hasImage: cur.hasImage,
@@ -279,7 +723,10 @@ class Component extends DCLogic {
           marginBottom: '56px',
           objectFit: cur.thumbFit || 'cover',
           objectPosition: 'center center',
-          background: '#ffffff'
+          background: '#ffffff',
+          boxShadow: '0 0 0 8px #ffffff',
+          cursor: 'zoom-in',
+          filter: cur.thumbTone || 'none'
         } : null,
         placeholderStyle: {
           display: cur.hasImage ? 'none' : 'flex',
@@ -298,7 +745,18 @@ class Component extends DCLogic {
       };
     }
 
+    const lbL = this.state.lb != null ? this.lbList() : [];
+    const lbItem = lbL[this.state.lb] || null;
     return {
+      lbOpen: !!lbItem,
+      lbSrc: lbItem ? lbItem.src : '',
+      lbCaption: lbItem ? lbItem.caption : '',
+      lbHasCaption: !!(lbItem && lbItem.caption),
+      lbCount: lbItem ? (this.state.lb + 1) + ' / ' + lbL.length : '',
+      lbClose: (e) => { if (e) e.stopPropagation(); if (!this.lbGuard()) this.closeLb(); },
+      lbPrev: (e) => { e.stopPropagation(); if (!this.lbGuard()) this.stepLb(-1); },
+      lbNext: (e) => { e.stopPropagation(); if (!this.lbGuard()) this.stepLb(1); },
+      lbStop: (e) => e.stopPropagation(),
       isHome,
       isDetail,
       projects,
