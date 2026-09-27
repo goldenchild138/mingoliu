@@ -116,11 +116,12 @@
           <div data-gallery-grid="1" style="{{ detail.galleryGridStyle }}">
             <sc-for list="{{ detail.gallery }}" as="g" hint-placeholder-count="12">
               <div onClick="{{ g.onClick }}" onMouseEnter="{{ g.onMouseEnter }}" onMouseLeave="{{ g.onMouseLeave }}" style="{{ g.tileStyle }}">
-                <sc-if value="{{ g.notAmoeba }}" hint-placeholder-val="{{ true }}">
-                  <img src="{{ g.src }}" data-long="{{ g.scroll }}" loading="lazy" decoding="async" style="{{ g.imgStyle }}" />
-                </sc-if>
-                <sc-if value="{{ g.amoeba }}" hint-placeholder-val="{{ false }}">{{ g.amoeba }}</sc-if>
-                <div style="{{ g.strokeStyle }}"></div>
+                <div style="{{ g.mediaStyle }}">
+                  <sc-if value="{{ g.notAmoeba }}" hint-placeholder-val="{{ true }}">
+                    <img src="{{ g.src }}" data-long="{{ g.scroll }}" loading="lazy" decoding="async" style="{{ g.imgStyle }}" />
+                  </sc-if>
+                  <sc-if value="{{ g.amoeba }}" hint-placeholder-val="{{ false }}">{{ g.amoeba }}</sc-if>
+                </div>
                 <div style="{{ g.captionStyle }}">
                   <span style="{{ g.captionTextStyle }}">{{ g.caption }}</span>
                 </div>
@@ -153,11 +154,11 @@
         <h1 style="font-weight: 700; letter-spacing: -0.01em; margin: 0 0 32px 0; font-size: 34px;">{{ detail.title }}</h1>
 
         <sc-if value="{{ detail.hasImage }}" hint-placeholder-val="{{ false }}">
-          <div style="position: relative; line-height: 0;">
+          <div style="position: relative; margin: 0 0 56px 0; border-radius: 10px; background: #ffffff; box-shadow: 0 0 0 8px #ffffff;">
             <img src="{{ detail.thumbSrcSafe }}" onClick="{{ detail.onHeroClick }}" style="{{ detail.thumbStyle }}" />
             <sc-if value="{{ detail.heroCaption }}" hint-placeholder-val="{{ false }}">
-              <div style="position: absolute; left: 8px; bottom: 64px; max-width: calc(100% - 16px); box-sizing: border-box; padding: 4px 8px; display: flex; text-align: left; background: #f4f4f5; border-radius: 4px; pointer-events: none;">
-                <span style="font-size: 13px; line-height: 1.45; color: #18181b; text-wrap: pretty;">{{ detail.heroCaption }}</span>
+              <div style="padding: 6px 4px 2px 4px; text-align: left; pointer-events: none;">
+                <span style="font-size: 11px; line-height: 1.45; color: #18181b; text-wrap: pretty;">{{ detail.heroCaption }}</span>
               </div>
             </sc-if>
           </div>
@@ -170,10 +171,10 @@
           <p style="line-height: 1.7; color: rgba(20,20,20,0.7); margin: 0; font-size: 14px;">{{ detail.body }}</p>
         </div>
         <sc-if value="{{ detail.preVideoImg }}" hint-placeholder-val="{{ false }}">
-          <div style="position: relative; margin: 0 0 10px 0; border-radius: 10px; box-shadow: 0 0 0 8px #ffffff; line-height: 0;">
+          <div style="position: relative; margin: 0 0 10px 0; border-radius: 10px; background: #ffffff; box-shadow: 0 0 0 8px #ffffff;">
             <img src="{{ detail.preVideoImg }}" alt="" style="width: 100%; display: block; border-radius: 10px; background: #f2f2f0;" />
-            <div style="position: absolute; left: 8px; bottom: 8px; max-width: calc(100% - 16px); box-sizing: border-box; padding: 4px 8px; display: flex; text-align: left; background: #f4f4f5; border-radius: 4px; pointer-events: none;">
-              <span style="font-size: 13px; line-height: 1.45; color: #18181b; text-wrap: pretty;">{{ detail.preVideoCaption }}</span>
+            <div style="padding: 6px 4px 2px 4px; text-align: left; pointer-events: none;">
+              <span style="font-size: 11px; line-height: 1.45; color: #18181b; text-wrap: pretty;">{{ detail.preVideoCaption }}</span>
             </div>
           </div>
         </sc-if>
@@ -181,11 +182,12 @@
           <div data-gallery-grid="1" style="{{ detail.galleryGridStyle }}">
             <sc-for list="{{ detail.gallery }}" as="g" hint-placeholder-count="12">
               <div onClick="{{ g.onClick }}" onMouseEnter="{{ g.onMouseEnter }}" onMouseLeave="{{ g.onMouseLeave }}" style="{{ g.tileStyle }}">
-                <sc-if value="{{ g.notAmoeba }}" hint-placeholder-val="{{ true }}">
-                  <img src="{{ g.src }}" data-long="{{ g.scroll }}" loading="lazy" decoding="async" style="{{ g.imgStyle }}" />
-                </sc-if>
-                <sc-if value="{{ g.amoeba }}" hint-placeholder-val="{{ false }}">{{ g.amoeba }}</sc-if>
-                <div style="{{ g.strokeStyle }}"></div>
+                <div style="{{ g.mediaStyle }}">
+                  <sc-if value="{{ g.notAmoeba }}" hint-placeholder-val="{{ true }}">
+                    <img src="{{ g.src }}" data-long="{{ g.scroll }}" loading="lazy" decoding="async" style="{{ g.imgStyle }}" />
+                  </sc-if>
+                  <sc-if value="{{ g.amoeba }}" hint-placeholder-val="{{ false }}">{{ g.amoeba }}</sc-if>
+                </div>
                 <div style="{{ g.captionStyle }}">
                   <span style="{{ g.captionTextStyle }}">{{ g.caption }}</span>
                 </div>
@@ -197,18 +199,18 @@
           <div data-gallery-grid="1" style="display: flex; flex-direction: column; gap: 18px; margin: 8px 0 64px 0;">
             <sc-for list="{{ detail.splitBlocks }}" as="b" hint-placeholder-count="4">
               <sc-if value="{{ b.isWide }}" hint-placeholder-val="{{ true }}">
-                <div onClick="{{ b.item.onClick }}" style="position: relative; border-radius: 10px; background: #f2f2f0; box-shadow: 0 0 0 8px #ffffff; line-height: 0; cursor: zoom-in;"><img src="{{ b.item.src }}" loading="lazy" decoding="async" alt="" style="width: 100%; height: auto; display: block; border-radius: 10px;" /><div style="position: absolute; left: 8px; bottom: 8px; max-width: calc(100% - 16px); box-sizing: border-box; padding: 4px 8px; display: flex; text-align: left; background: #f4f4f5; border-radius: 4px; pointer-events: none;"><span style="font-size: 13px; line-height: 1.45; color: #18181b; text-wrap: pretty;">{{ b.item.caption }}</span></div></div>
+                <div onClick="{{ b.item.onClick }}" style="position: relative; border-radius: 10px; background: #ffffff; box-shadow: 0 0 0 8px #ffffff; cursor: zoom-in;"><img src="{{ b.item.src }}" loading="lazy" decoding="async" alt="" style="width: 100%; height: auto; display: block; border-radius: 10px; background: #f2f2f0;" /><div style="padding: 6px 4px 2px 4px; text-align: left; pointer-events: none;"><span style="font-size: 11px; line-height: 1.45; color: #18181b; text-wrap: pretty;">{{ b.item.caption }}</span></div></div>
               </sc-if>
               <sc-if value="{{ b.isPair }}" hint-placeholder-val="{{ false }}">
                 <div style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 18px; align-items: start;">
                   <div style="display: flex; flex-direction: column; gap: 18px;">
                     <sc-for list="{{ b.left }}" as="t" hint-placeholder-count="2">
-                      <div onClick="{{ t.onClick }}" style="position: relative; border-radius: 10px; background: #f2f2f0; box-shadow: 0 0 0 8px #ffffff; line-height: 0; cursor: zoom-in;"><img src="{{ t.src }}" loading="lazy" decoding="async" alt="" style="width: 100%; height: auto; display: block; border-radius: 10px;" /><div style="position: absolute; left: 8px; bottom: 8px; max-width: calc(100% - 16px); box-sizing: border-box; padding: 4px 8px; display: flex; text-align: left; background: #f4f4f5; border-radius: 4px; pointer-events: none;"><span style="font-size: 13px; line-height: 1.45; color: #18181b; text-wrap: pretty;">{{ t.caption }}</span></div></div>
+                      <div onClick="{{ t.onClick }}" style="position: relative; border-radius: 10px; background: #ffffff; box-shadow: 0 0 0 8px #ffffff; cursor: zoom-in;"><img src="{{ t.src }}" loading="lazy" decoding="async" alt="" style="width: 100%; height: auto; display: block; border-radius: 10px; background: #f2f2f0;" /><div style="padding: 6px 4px 2px 4px; text-align: left; pointer-events: none;"><span style="font-size: 11px; line-height: 1.45; color: #18181b; text-wrap: pretty;">{{ t.caption }}</span></div></div>
                     </sc-for>
                   </div>
                   <div style="display: flex; flex-direction: column; gap: 18px;">
                     <sc-for list="{{ b.right }}" as="t" hint-placeholder-count="2">
-                      <div onClick="{{ t.onClick }}" style="position: relative; border-radius: 10px; background: #f2f2f0; box-shadow: 0 0 0 8px #ffffff; line-height: 0; cursor: zoom-in;"><img src="{{ t.src }}" loading="lazy" decoding="async" alt="" style="width: 100%; height: auto; display: block; border-radius: 10px;" /><div style="position: absolute; left: 8px; bottom: 8px; max-width: calc(100% - 16px); box-sizing: border-box; padding: 4px 8px; display: flex; text-align: left; background: #f4f4f5; border-radius: 4px; pointer-events: none;"><span style="font-size: 13px; line-height: 1.45; color: #18181b; text-wrap: pretty;">{{ t.caption }}</span></div></div>
+                      <div onClick="{{ t.onClick }}" style="position: relative; border-radius: 10px; background: #ffffff; box-shadow: 0 0 0 8px #ffffff; cursor: zoom-in;"><img src="{{ t.src }}" loading="lazy" decoding="async" alt="" style="width: 100%; height: auto; display: block; border-radius: 10px; background: #f2f2f0;" /><div style="padding: 6px 4px 2px 4px; text-align: left; pointer-events: none;"><span style="font-size: 11px; line-height: 1.45; color: #18181b; text-wrap: pretty;">{{ t.caption }}</span></div></div>
                     </sc-for>
                   </div>
                 </div>
@@ -227,11 +229,12 @@
           <div data-gallery-grid="1" style="{{ detail.galleryGridStyle }}">
             <sc-for list="{{ detail.gallery }}" as="g" hint-placeholder-count="12">
               <div onClick="{{ g.onClick }}" onMouseEnter="{{ g.onMouseEnter }}" onMouseLeave="{{ g.onMouseLeave }}" style="{{ g.tileStyle }}">
-                <sc-if value="{{ g.notAmoeba }}" hint-placeholder-val="{{ true }}">
-                  <img src="{{ g.src }}" data-long="{{ g.scroll }}" loading="lazy" decoding="async" style="{{ g.imgStyle }}" />
-                </sc-if>
-                <sc-if value="{{ g.amoeba }}" hint-placeholder-val="{{ false }}">{{ g.amoeba }}</sc-if>
-                <div style="{{ g.strokeStyle }}"></div>
+                <div style="{{ g.mediaStyle }}">
+                  <sc-if value="{{ g.notAmoeba }}" hint-placeholder-val="{{ true }}">
+                    <img src="{{ g.src }}" data-long="{{ g.scroll }}" loading="lazy" decoding="async" style="{{ g.imgStyle }}" />
+                  </sc-if>
+                  <sc-if value="{{ g.amoeba }}" hint-placeholder-val="{{ false }}">{{ g.amoeba }}</sc-if>
+                </div>
                 <div style="{{ g.captionStyle }}">
                   <span style="{{ g.captionTextStyle }}">{{ g.caption }}</span>
                 </div>
@@ -672,31 +675,28 @@ class Component extends DCLogic {
           amoeba: g.amoeba ? amoebaEl() : g.anim === 'synthace' ? synthaceEl() : null,
           notAmoeba: !(g.amoeba || g.anim),
           onClick: (g.amoeba || g.anim) ? undefined : (e) => this.openLb(g.src, e),
-          strokeStyle: { display: 'none' },
           tileStyle: {
-            position: 'relative', borderRadius: '10px', overflow: 'hidden', background: '#f2f2f0', cursor: (g.amoeba || g.anim) ? 'default' : 'zoom-in',
-            ...(allFull ? { width: '100%', aspectRatio: `1 / ${g.fr || 0.5625}` } : { gridColumn: `${p.c + 1} / span ${cs}`, gridRow: `${p.r + 1} / span ${rs}` }),
+            position: 'relative', borderRadius: '10px', background: '#ffffff', display: 'flex', flexDirection: 'column', minHeight: 0, cursor: (g.amoeba || g.anim) ? 'default' : 'zoom-in',
+            ...(allFull ? { width: '100%' } : { gridColumn: `${p.c + 1} / span ${cs}`, gridRow: `${p.r + 1} / span ${rs}` }),
             boxShadow: '0 0 0 8px #ffffff'
+          },
+          mediaStyle: {
+            position: 'relative', borderRadius: '10px', overflow: 'hidden', background: '#f2f2f0',
+            ...(allFull ? { width: '100%', aspectRatio: `1 / ${g.fr || 0.5625}` } : { flex: '1 1 0', minHeight: 0 })
           },
           imgStyle: {
             position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover',
             objectPosition: (g.size === 't' || g.scroll) ? 'center top' : 'center center', display: 'block',
             ...(g.scroll ? { animation: `longScroll ${Math.max(12, Math.round((g.scroll - 1.6) * 9))}s linear ${(i % 5) * -3}s infinite alternate`, willChange: 'object-position' } : {})
           },
-          captionTextStyle: { fontSize: small ? '12px' : '13px', lineHeight: 1.45, color: '#18181b', textWrap: 'pretty' },
+          captionTextStyle: { fontSize: '11px', lineHeight: 1.45, color: '#18181b', textWrap: 'pretty' },
           onMouseEnter: undefined,
           onMouseLeave: undefined,
           captionStyle: {
-            position: 'absolute',
-            left: '8px',
-            bottom: '8px',
-            maxWidth: 'calc(100% - 16px)',
-            boxSizing: 'border-box',
-            padding: '4px 8px',
-            display: 'flex',
+            display: g.caption ? 'block' : 'none',
+            flexShrink: 0,
+            padding: '6px 4px 2px 4px',
             textAlign: 'left',
-            background: '#f4f4f5',
-            borderRadius: '4px',
             pointerEvents: 'none'
           }
         }; }),
@@ -720,11 +720,10 @@ class Component extends DCLogic {
           width: '100%',
           aspectRatio: '16 / 9',
           borderRadius: '10px',
-          marginBottom: '56px',
+          display: 'block',
           objectFit: cur.thumbFit || 'cover',
           objectPosition: 'center center',
           background: '#ffffff',
-          boxShadow: '0 0 0 8px #ffffff',
           cursor: 'zoom-in',
           filter: cur.thumbTone || 'none'
         } : null,
