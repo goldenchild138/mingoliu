@@ -4,6 +4,23 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
+<script>
+  // Gallery tiles shimmer until their image arrives, then fade in (styles in the helmet <style>).
+  (function () {
+    function mark(img) { img.setAttribute('data-loaded', ''); }
+    function onDone(e) { if (e.target.matches && e.target.matches('img[data-gimg]')) mark(e.target); }
+    document.addEventListener('load', onDone, true);
+    document.addEventListener('error', onDone, true);
+    // Catch images that finished before the listener saw them, and reset tiles whose src was swapped.
+    setInterval(function () {
+      document.querySelectorAll('img[data-gimg]').forEach(function (img) {
+        var loaded = img.hasAttribute('data-loaded');
+        if (img.complete && !loaded) mark(img);
+        else if (!img.complete && loaded) img.removeAttribute('data-loaded');
+      });
+    }, 400);
+  })();
+</script>
 </head>
 <body>
 <x-dc>
@@ -55,6 +72,11 @@
     @keyframes amCo { 0.00% { opacity: 1; } 4.38% { opacity: 0; } 8.75% { opacity: 1; } 21.25% { opacity: 1; } 27.50% { opacity: 0; } 33.75% { opacity: 1; } 40.00% { opacity: 0; } 46.25% { opacity: 1; } 52.50% { opacity: 0; } 58.75% { opacity: 1; } 65.00% { opacity: 0; } 67.50% { opacity: 0; } 100% { opacity: 0; } }
     @media (prefers-reduced-motion: reduce) { svg[data-amoeba] * { animation: none !important; } svg[data-amoeba] tspan { fill-opacity: 1 !important; } svg[data-amoeba] .am-cur { opacity: 0; } }
     @media (prefers-reduced-motion: reduce) { img[data-long] { animation: none !important; } }
+    @keyframes tileShimmer { from { background-position: 150% 0; } to { background-position: -50% 0; } }
+    img[data-gimg] { opacity: 0; transition: opacity 0.45s ease; }
+    img[data-gimg][data-loaded] { opacity: 1; }
+    div:has(> img[data-gimg]:not([data-loaded]))::before { content: ""; position: absolute; inset: 0; background: linear-gradient(100deg, #f2f2f0 30%, #fafaf9 50%, #f2f2f0 70%); background-size: 200% 100%; animation: tileShimmer 1.4s ease-in-out infinite; }
+    @media (prefers-reduced-motion: reduce) { div:has(> img[data-gimg])::before { animation: none !important; } img[data-gimg] { transition: none; } }
   </style>
 </helmet>
 
@@ -118,7 +140,7 @@
               <div onClick="{{ g.onClick }}" onMouseEnter="{{ g.onMouseEnter }}" onMouseLeave="{{ g.onMouseLeave }}" style="{{ g.tileStyle }}">
                 <div style="{{ g.mediaStyle }}">
                   <sc-if value="{{ g.notAmoeba }}" hint-placeholder-val="{{ true }}">
-                    <img src="{{ g.src }}" data-long="{{ g.scroll }}" loading="lazy" decoding="async" style="{{ g.imgStyle }}" />
+                    <img src="{{ g.src }}" data-long="{{ g.scroll }}" data-gimg="1" loading="lazy" decoding="async" style="{{ g.imgStyle }}" />
                   </sc-if>
                   <sc-if value="{{ g.amoeba }}" hint-placeholder-val="{{ false }}">{{ g.amoeba }}</sc-if>
                 </div>
@@ -184,7 +206,7 @@
               <div onClick="{{ g.onClick }}" onMouseEnter="{{ g.onMouseEnter }}" onMouseLeave="{{ g.onMouseLeave }}" style="{{ g.tileStyle }}">
                 <div style="{{ g.mediaStyle }}">
                   <sc-if value="{{ g.notAmoeba }}" hint-placeholder-val="{{ true }}">
-                    <img src="{{ g.src }}" data-long="{{ g.scroll }}" loading="lazy" decoding="async" style="{{ g.imgStyle }}" />
+                    <img src="{{ g.src }}" data-long="{{ g.scroll }}" data-gimg="1" loading="lazy" decoding="async" style="{{ g.imgStyle }}" />
                   </sc-if>
                   <sc-if value="{{ g.amoeba }}" hint-placeholder-val="{{ false }}">{{ g.amoeba }}</sc-if>
                 </div>
@@ -231,7 +253,7 @@
               <div onClick="{{ g.onClick }}" onMouseEnter="{{ g.onMouseEnter }}" onMouseLeave="{{ g.onMouseLeave }}" style="{{ g.tileStyle }}">
                 <div style="{{ g.mediaStyle }}">
                   <sc-if value="{{ g.notAmoeba }}" hint-placeholder-val="{{ true }}">
-                    <img src="{{ g.src }}" data-long="{{ g.scroll }}" loading="lazy" decoding="async" style="{{ g.imgStyle }}" />
+                    <img src="{{ g.src }}" data-long="{{ g.scroll }}" data-gimg="1" loading="lazy" decoding="async" style="{{ g.imgStyle }}" />
                   </sc-if>
                   <sc-if value="{{ g.amoeba }}" hint-placeholder-val="{{ false }}">{{ g.amoeba }}</sc-if>
                 </div>
@@ -467,18 +489,18 @@ class Component extends DCLogic {
       galleryLayout: 'bento', galleryRowRatio: 0.5625,
       body: "Product and app design for Dyson Lightcycle, a connected lamp that synchronises colour temperature and brightness to natural daylight patterns based on location and time of day.",
       gallery: [
-        { size: 'l', src: 'assets/lightcycle/01.png', caption: '“Modern life has robbed us of natural light. We spend 90% of our lives indoors.” — Jake Dyson, Chief Lighting Engineer' },
-        { size: 's', src: 'assets/lightcycle/02.png', caption: '72% of consumers believe replicating natural light can reduce eyestrain.' },
-        { size: 's', src: 'assets/lightcycle/03.png', caption: '90% of East Asian school children are nearsighted.' },
-        { size: 's', src: 'assets/lightcycle/04.png', caption: '2 billion people are expected to have presbyopia by 2020.' },
-        { size: 's', src: 'assets/lightcycle/05.png', caption: 'Workshop whiteboard — mapping content intent, status and simulation.' },
-        { size: 's', src: 'assets/lightcycle/06.png', caption: 'Showing daylight without framing it as a negative when you fall off the curve.' },
-        { size: 's', src: 'assets/lightcycle/07.png', caption: 'Concept 03 — full spectrum versus a single gradient at that moment.' },
-        { size: 'l', src: 'assets/lightcycle/10.png', caption: 'Final app — synchronised home screen and manual light controls.' },
-        { size: 's', src: 'assets/lightcycle/08.png', caption: 'Concept 01 — night mode and position on the daylight curve.' },
-        { size: 's', src: 'assets/lightcycle/09.png', caption: 'Three concepts compared: spot, curve and dial, with pros and cons.' },
-        { size: 'l', src: 'assets/lightcycle/11.png', caption: 'Annotated redlining and mode iconography in dark and light.' },
-        { size: 'l', src: 'assets/lightcycle/12.png', caption: 'Four states: synchronised, off, manual and not connected.' }
+        { size: 'l', src: 'assets/lightcycle/01.jpg', caption: '“Modern life has robbed us of natural light. We spend 90% of our lives indoors.” — Jake Dyson, Chief Lighting Engineer' },
+        { size: 's', src: 'assets/lightcycle/02.jpg', caption: '72% of consumers believe replicating natural light can reduce eyestrain.' },
+        { size: 's', src: 'assets/lightcycle/03.jpg', caption: '90% of East Asian school children are nearsighted.' },
+        { size: 's', src: 'assets/lightcycle/04.jpg', caption: '2 billion people are expected to have presbyopia by 2020.' },
+        { size: 's', src: 'assets/lightcycle/05.jpg', caption: 'Workshop whiteboard — mapping content intent, status and simulation.' },
+        { size: 's', src: 'assets/lightcycle/06.jpg', caption: 'Showing daylight without framing it as a negative when you fall off the curve.' },
+        { size: 's', src: 'assets/lightcycle/07.jpg', caption: 'Concept 03 — full spectrum versus a single gradient at that moment.' },
+        { size: 'l', src: 'assets/lightcycle/10.jpg', caption: 'Final app — synchronised home screen and manual light controls.' },
+        { size: 's', src: 'assets/lightcycle/08.jpg', caption: 'Concept 01 — night mode and position on the daylight curve.' },
+        { size: 's', src: 'assets/lightcycle/09.jpg', caption: 'Three concepts compared: spot, curve and dial, with pros and cons.' },
+        { size: 'l', src: 'assets/lightcycle/11.jpg', caption: 'Annotated redlining and mode iconography in dark and light.' },
+        { size: 'l', src: 'assets/lightcycle/12.jpg', caption: 'Four states: synchronised, off, manual and not connected.' }
       ]
     },
     {
